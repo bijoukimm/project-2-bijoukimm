@@ -1,38 +1,470 @@
-.App {
-  text-align: center;
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    height: 100%;
+    background-color: #f0e5d6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* INDEX PAGE */
+.dog-paragraph {
+    font-size: 14pt;
+}
+
+.hide-dog-details {
+    display: none;
+}
+.breed-content {
+    display: none;
+}
+.dropbtn {
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bundle {
+    text-align: center;
+}
+.size-option {
+    cursor: pointer;
+}
+.breed-option {
+    cursor: pointer;
+}
+
+.remove-filter {
+    color: gray;
+    font-style: italic;
+}
+.dropdown .dropbtn {
+    padding: 10px;
+    font-size: 16px;
+    font-style: normal;
+
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #db9d47;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* Dropdown button on hover & focus */
+  .dropdown .dropbtn:hover, .dropdown .dropbtn:focus {
+    background-color: #db9d47;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
   }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    }
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+.favorite {
+    float: right;
+    border: none;
+    padding: 10px 18px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#sizeFeedback, #breedFeedback, #colorFeedback {
+    font-size: 9pt;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+h1 {
+     font-weight: 400;
+     font-size: 25pt;
+}
+
+.cardname img {
+    width: 300px;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+body {
+    color: #535353;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    height: unset;
+
+}
+
+.index {
+    color:#ffffff; 
+    text-align: left;
+    font-size: 20pt;
+    background-color: #db9d47;
+    margin-top: -20px;
+    height: 5.25em;
+    /*margin-bottom: 0.6rem;*/
+}
+
+.title-text {
+    display: block;
+}
+
+.content {
+    display: flex;
+    padding: 1px 16px;
+    height: 100%;
+    flex: 1;
+    
+}
+
+section {
+    padding: 1em;
+}
+
+.dog-cards-main {
+    display: flex;
+    height: 100%;
+    flex: 1;
+    flex-grow: 1;
+    background-color: #eee;
+    margin-bottom: 3rem;
+}
+
+.all {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    flex: 0 0 270px;
+    background-color: white;
+    margin-bottom: .5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+.cards-hide {
+    display: none;
+}
+.toggle-cards {
+    display: none;
+}
+
+.cardname {
+    color: black;
+    text-decoration: none;
+}
+
+.cardname p {
+    padding: .5rem 1rem;
+}
+
+.dogs{
+    height: 100px;
+    width: 100px;  
+    top: 10%;
+}
+
+.form-align{
+    display: block;
+    margin: 20px 20px;
+}
+
+
+.f-inline {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    
+}
+.f-inline h2{
+    font-weight: 500;
+    font-size: 18pt;
+    margin: 5px 10px 5px 0px;
+}
+
+.f-inline div{
+    margin-right: 20px;
+}
+
+.f-inline label {
+    margin: 5px 10px 5px 0px;
+    font-weight: 500;
+    font-size: 18pt;
+}
+  
+.f-inline input {
+    vertical-align: middle;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.f-inline button {
+
+    padding: 8px 10px;
+    margin-top: 15px;
+    text-align: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #db9d47;
+}
+.bundle .submit{
+    margin-top: 35px;
+}
+
+.f-inline button:hover{
+    background-color: #db9d47;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: -40px;
+    height: 1rem;
+}
+
+.about-button {
+    top: 0;
+    right: 0;
+    font-size: 13pt;
+    margin: 15px;
+    color: #db9d47;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+/* LANDING PAGE */
+.landing {
+    background-image: url(../imgs/dpgs.jpg);
+    background-size: auto;
+    background-position: center;
+    height: 75vh;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.landing h1{
+    font-size: 50px;
+    font-weight: 400;
+    text-shadow: 2px 2px #707070;
+
+}
+
+.landing p {
+    font-size: 20px;
+    
+}
+
+.landing .button{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #db9d47;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+.section1{
+    padding: 20px;
+    text-align: center;
+    color: #926329;
+    line-height: 2em;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    font-size: 16pt;
+}
+
+.section2{
+    padding: 20px;
+    display: flex;
+}
+
+.section2 .col-1, .section2 .col-3{
+    background-color: #926329;
+    color: #ffffff;
+
+}
+
+/* BREED PAGE */
+.top-head{
+    font-weight: 500;
+    font-size: 25pt;
+    color: white;
+    background-color: #db9d47;
+}
+
+.close-button {
+    font-size: x-large;
+    color: white;
+    
+}
+
+.husky-head {
+    display: none;
+    /*background-image: url('../imgs/Husky.jpg');*/
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.husky-head h1 {
+    font-size: 50px;
+    font-weight: 500;
+    color: white;
+}
+
+
+.husky-info-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+li {
+    position: inherit;
+    text-align: left;
+
+}
+/*.husky-info-container .column {
+    padding: 5rem;
+}*/
+
+.husky-cards {
+    flex-wrap: wrap;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    font-size: 13pt;
+}
+
+.about {
+    padding: 20px;
+    text-align: center;
+    color: black;
+    line-height: 2em;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) { /*tablet size */
+    /*.comment::before { 
+        content: ‘\a’; white-space:pre; 
+    }*/
+    .cards {
+        margin: .5rem;
+    }
+    .f-inline { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .husky-info-container {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+    }
+    .husky-cards {
+        font-size: 15pt;
+        margin-left: 10px;
+        margin-right: 10px;
+        flex-basis: auto;
+    }
+    .husky-head h1 {
+        font-size: 75px;
+    }
+    .about {
+        font-size: 17pt;
+    }
+    .heading-bar {
+        font-size: 32pt;
+    }
+    .column {
+        width: 33.33%;
+        padding: 20px;
+    }
+    .landing {
+        background-size: cover;
+    }
+    .husky-info-container .column {
+    padding: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    /*.comment::before { 
+        content: ‘\a’; white-space:pre; 
+    }*/
+    .cards {
+        margin: .5rem;
+    }
+    .f-inline { 
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+    }
+    .husky-head h1 {
+        font-size: 90px
+    }
+    .husky-cards {
+        font-size: 16pt;
+        margin-left: 10px;
+        margin-right: 10px;
+        flex-basis: auto;
+    }
+    .about {
+        font-size: 18pt;
+    }
 }
