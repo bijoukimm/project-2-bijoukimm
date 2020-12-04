@@ -277,7 +277,7 @@ footer {
 
 /* LANDING PAGE */
 .landing {
-    background-image: url(../imgs/dpgs.jpg);
+    /* background-image: url(../imgs/dpgs.jpg); */
     background-size: auto;
     background-position: center;
     height: 75vh;

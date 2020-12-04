@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import {AboutPage} from './About';
 import BreedPage from './Breed';
 import './App.css';
-import {Route, Switch, Redirect} from 'react-router';
-import {Link} from 'react-router-dom';
+
+import {BrowserRouter, Route, Switch, Link, Redirect} from 'react-router-dom';
 import DOGS from './dogs.csv';
 
 function App() {
@@ -16,44 +16,50 @@ function App() {
   }
 
   return (
-    <div>
-      <header className="index">
-        <h1>
-            <span className="heading-bar">
-              <Link to='/'>Care for Paws</Link> {/*how do i insert an image*/}
-              <Link to='/about' className='about-button' component={AboutPage}>About</Link> {/*route? link?*/}
-            </span>
-        </h1>
-      </header>
+    <BrowserRouter>
+      <div>
+        <header className="index">
+          <h1>
+              <span className="heading-bar">
+                <Link to='/'>Care for Paws</Link> {/*how do i insert an image*/}
+                <Link to='/about' className='about-button' component={AboutPage}>About</Link> {/*route? link?*/}
+              </span>
+          </h1>
+        </header>
 
-      <div className="form-align">
-        <Navbar/>
-      </div>
-
-      <div className="husky-head">
-        <a href="index.html" className="close-button" aria-label="close"><i className="fa fa-window-close" aria-hidden="true"></i></a>
-        <BreedName/>
-      </div>
-
-      <main>
-        <div className="breed-content">
-          <section className="about"></section>
-          <div className="information">
-            <BreedContent/>
-          </div>
+        <div className="form-align">
+          <Navbar/>
         </div>
 
-        <div className="content">
-          <div className="dog-cards-main">
-            <DogList/>
-          </div>
-        </div>
-      </main>
+        {/* <div className="husky-head">
+          <a href="index.html" className="close-button" aria-label="close"><i className="fa fa-window-close" aria-hidden="true"></i></a>
+          <BreedName/>
+        </div> */}
 
-      <footer>
-          <p>Contact Us: careforpaws@email.com</p>
-      </footer>
-    </div>
+        <main>
+          {/* <div className="breed-content">
+            <section className="about"></section>
+            <div className="information">
+              <BreedContent/>
+            </div>
+          </div> */}
+
+          <div className="content">
+            <div className="dog-cards-main">
+              <Switch>
+                <Route exact path="/" render={renderDogList}/>
+                <Route path="/:breedName" component={BreedPage}/>
+                <Redirect to="/"/>
+              </Switch>
+            </div>
+          </div>
+        </main>
+
+        <footer>
+            <p>Contact Us: careforpaws@email.com</p>
+        </footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
@@ -109,7 +115,9 @@ function DogList(props) {
   })
 
   return (
-    
+    <div>
+      {dogCards}
+    </div>
   );
 }
 
@@ -126,6 +134,12 @@ function DogCard(props) {
 
   let dog = props.dog; //shortcut
   return (
+    <div className="card clickable" onClick={handleClick}>
+      <img className="card-img-top" src={dog.images[0]} alt={BreedPage} />
+      <div className="card-body">
+        <p className="card-text">{dog.breed}</p>
+      </div>
+    </div>
     
   );
 }
