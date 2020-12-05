@@ -3,7 +3,7 @@ import { UncontrolledCarousel, Button } from 'reactstrap';
 import _ from 'lodash';
 import { useParams } from 'react-router-dom';
 import DOGS from './dogs.csv';
-
+console.log(DOGS);
 function BreedPage(props) {
   let breedName = '';
   const urlParams = useParams();
