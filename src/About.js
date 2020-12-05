@@ -3,17 +3,22 @@ import React from 'react';
 function AboutPage() {
   return (
     <div>
-        <h2>About Us</h2>
-        <p>Here is some information about us. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-        <blockquote>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</blockquote>
-        <p>Veniam dolorem cupiditate tenetur placeat nulla repellat dicta maxime architecto blanditiis non facere nesciunt quae animi quam quidem ullam, suscipit nisi ipsam voluptatem accusamus necessitatibus itaque autem in, sunt similique.</p>
-        <p>In mollitia cumque sapiente ducimus quo labore magni qui quas aperiam, voluptatibus nesciunt dicta enim dignissimos doloribus tempora iusto commodi alias recusandae tempore beatae atque? Totam cum et, perferendis itaque.</p>
-        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+        <h2 className="about-page-title">About Care For Paws</h2>
+        <div className="about-content">
+          <p> 
+            Every dog breed has needs and attributes that make them different from one another. It is important for owners to know about
+            the dog they want to get in order to best care for them!
+          </p>
+          <blockquote>Our goal is to give the necessary information about dogs to current or future dog owners 
+            to give your new friend the best life possible. A pet is not an accessory nor simply a cute companion;
+            they should be treated as a priority and receive careful attention.
+          </blockquote>
+          <p>We hope that our website takes a step closer to ending pet abuse and animal cruelty. 
+            Feel free to contact us at the email address at the bottom of the page!</p>
+        </div>
     </div>
   );
 }
-
-
 export default AboutPage;
-
 export {AboutPage};
+
