@@ -65,7 +65,7 @@ function App() {
 
 function Navbar() {
   function toggleDropDown(type) {
-    if (type == 'breed') {
+    if (type === 'breed') {
       document.getElementById("breedOptionContainer").classList.toggle("show");
     } else {
       document.getElementById("sizeOptionContainer").classList.toggle("show");
@@ -129,7 +129,8 @@ function DogCard(props) {
   }
 
   if (redirectTo !== undefined) {
-    return <Redirect push to={"/breed/" + redirectTo} />
+    // return <Redirect push to={"/breed/" + redirectTo} />
+    return <Redirect push to={"/" + redirectTo} />
   }
 
   let dog = props.dog; //shortcut
