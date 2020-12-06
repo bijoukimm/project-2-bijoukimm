@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { render } from 'react-dom';
 
 import { AboutPage } from './About';
-import { BreedPage } from './Breed';
+import BreedPage from './Breed';
 import './App.css'; //import css file!
 import LOGO from './doggy.png'
 
@@ -14,8 +14,11 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 function App(props) {
 
   const pets = props.dogs; //pretend this was loaded externally or via prop
-  const renderPetList = (routerProps) => {
-    return <PetList {...routerProps} pets={pets} />
+  const renderDogList = (routerProps) => {
+    return <DogList {...routerProps} pets={pets} />
+  }
+  const renderBreedPage = (routerProps) => {
+    return <BreedPage {...routerProps} pets={pets} />
   }
 
   return (
@@ -34,9 +37,9 @@ function App(props) {
           </div>
           <div className="col-9">
             <Switch>
-              <Route exact path="/" render={renderPetList}/>
+              <Route exact path="/" render={renderDogList}/>
               <Route path="/about" component={AboutPage}/>
-              <Route path="/breed/:breedName" component={BreedPage}/>
+              <Route path="/breed/:breedName" render={renderBreedPage}/>
               <Redirect to="/"/>
             </Switch>
           </div>
@@ -62,10 +65,10 @@ function AboutNav() {
   );
 }
 
-function PetList(props) {
+function DogList(props) {
   let dogs = props.pets; //handle if not provided a prop
   let dogCards = dogs.map((dog) => {
-    return <PetCard key={dog.BreedName} dog={dog} />;
+    return <DogCard key={dog.BreedName} dog={dog} />;
   })
 
   return (
@@ -78,15 +81,15 @@ function PetList(props) {
   );
 }
 
-function PetCard(props) {
+function DogCard(props) {
   const [redirectTo, setRedirectTo] = useState(undefined);
   const handleClick = () => {
-    console.log("You clicked on", props.pet.name);
-    setRedirectTo(props.pet.name);
+    console.log("You clicked on", props.dog.BreedName);
+    setRedirectTo(props.dog.BreedName);
   }
 
   if (redirectTo !== undefined) {
-    return <Redirect push to={"/adopt/" + redirectTo} />
+    return <Redirect push to={"/breed/" + redirectTo} />
   }
 
   let dog = props.dog; //shortcut

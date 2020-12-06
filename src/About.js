@@ -3,8 +3,13 @@ import React from 'react';
 function AboutPage() {
   return (
     <div>
-        <img className="aboutimg" src="./dpgs.png" alt="Dogs playing"></img>
-        <h2 className="about-page-title">About Care For Paws</h2>
+        <div class="background-img">
+              <div class="inner">
+                  <div class="text-container text-center">
+                    <h2 className="about-page-title">About Care For Paws</h2>
+                  </div>
+              </div>
+          </div>
         <div className="about-content">
           <p> 
             Every dog breed has needs and attributes that make them different from one another. It is important for owners to know about

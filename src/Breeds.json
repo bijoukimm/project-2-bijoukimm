@@ -5,7 +5,7 @@
       "Size": "Large",
       "Weight(lbs)": "50-65 lbs (male), 40-55 lbs (female)",
       "Lifespan": "12-15 years",
-      "FurColors": "Black, white, red, grey, tan",
+      "FurColors": ["Black", "White", "Red", "Grey", "Tan"],
       "Personality": "Smart, exuberant",
       "About":  "It is well known that the Australian Shepherd (commonly referred to as ‘Aussie’) is extremely intelligent. They are easy-going and get along with children and other pets. By their herding instincts, Aussies can be very protective of their home and territory. They may bark when strangers approach, but will not necessarily be aggressive. Aussies need a good amount of exercise, and when left alone in a confined space, they can become very unhappy and destructive of their surroundings. At least 40 minutes of exercise a day is recommended. The best homes to raise this breed will have a big backyard with a fence for the Aussie to run around freely.",
       "images": "imgs/Australian Shepherd.jpg"
@@ -17,7 +17,7 @@
         "Size": "Small",
         "Weight(lbs)": "20-30lbs",
         "Lifespan": "10-15 years",
-        "FurColors": "White, chocolate, orange, tan",
+        "FurColors": ["White", "Chocolate", "Orange", "Tan"],
         "Personality": "Friendly, curious",
         "About": "Not only is the Beagle an excellent hunting dog and loyal companion, it is also happy-go-lucky, funny, and—thanks to its pleading expression—cute. Small, compact, and hardy, Beagles are active companions for kids and adults alike. Canines of this dog breed are merry and fun loving, but being hounds, they can also be stubborn and require patient, creative training techniques. The most important thing to know about the Beagle is that he is a scenthound. His nose is the most important part of his anatomy and his head is always down to the ground, searching for an interesting trail to follow. It is important to keep in mind that Beagles are more prone to epilepsy than other breeds.",
         "images": "imgs/Beagle.jpg"
@@ -28,7 +28,7 @@
         "Size": "Very large",
         "Weight(lbs)": "80-115 lbs (male), 70-95 lbs (female)",
         "Lifespan": "7-10 years",
-        "FurColors": "Black, white, orange",
+        "FurColors": ["Black", "White", "Orange"],
         "Personality": "Strong, calm",
         "About": "Berners are generally placid but are always up for a romp with the owner, whom they live to please. A novice dog parent might be attracted to this breed’s friendly disposition, intelligence, and highly trainable nature. However, first-timers should beware. The Bernese Mountain Dog’s size and high energy can make handling difficult. Thus, they don’t appreciate being cooped up in apartments all day. They shed a lot, and they tend to need the drool wiped from their faces every once in a while.",
         "images": "imgs/Bernese Mountain Dog.jpg"
@@ -40,7 +40,7 @@
         "Size": "Medium-large",
         "Weight(lbs)": "30-55 lbs ",
         "Lifespan": "12-15 years",
-        "FurColors": "Black, white, grey",
+        "FurColors": ["Black", "White", "Grey"],
         "Personality": "Affectionate, energetic",
         "About": "A remarkably bright workaholic, the Border Collie is an amazing dog—maybe a bit too amazing for owners without the time, energy, or means to keep it occupied. The highly trainable and intelligent Border Collies also excel in various canine sports, including obedience, flyball, agility, tracking, and flying disc competitions. They can make for great family companions, so long as they get a lot — a lot! — of physical and mental exercise. You’ll also have to be comfortable with a dog who can outsmart you from time to time. If you want a loving, brainy dog who will keep you active and on your toes, this may be the breed for you!",
         "images": "imgs/Border Collie.jpg"
@@ -51,7 +51,7 @@
         "Size": "Large",
         "Weight(lbs)": "65-80 lbs (male), 50-65(female)",
         "Lifespan": "10-12 years",
-        "FurColors": "Brown, black, white",
+        "FurColors": ["Brown", "Black", "White"],
         "Personality": "Bright, active, loving",
         "About": "Originating from Germany is the large, muscular, square-headed Boxer. The typical Boxer is intelligent, alert, and fearless, yet friendly. Training is essential because of their strong build they need to learn to control their actions. They're loyal to their family and love to play with them, but they're also headstrong, especially if you try to use harsh training methods with them. Boxers are generally healthy, but like all breeds, they're prone to certain health conditions. Some conditions to look out for is cancer, Aortic stenosis/sub-aortic stenosis, Boxer cardiomyopathy, Hip Dysplasia, Corneal Dystrophy, Demodectic Mange, Gastric dilatation-volvulus (GDV), Allergies, Deafness. ",
         "images": "imgs/boxer.jpg"
@@ -63,7 +63,7 @@
         "Size": "Small",
         "Weight(lbs)": "50 lbs (male), 40 lbs (female)",
         "Lifespan": "8-10 years",
-        "FurColors": "White, black, tan, grey",
+        "FurColors": ["White", "Black", "Tan", "Grey"],
         "Personality": "Friendly, calm",
         "About": "Taking the #4 most popular dog breeds in the US are the Bulldog. Sometimes called the English Bulldog or the British Bulldog, the breed originated in England. Despite cartoon depictions of them as ferocious dogs, today's Bulldogs are bred to be affectionate and kind. Bulldogs can have a lot of health problems so be sure you're willing to monitor their health closely and can afford any medical treatment they may need. Conditions include: Cherry eye, dry eye, Entropion, Inverted Or Reverse Sneezing, Brachycephalic Syndrome, Head Shakes, Demodicosis, Hip Dysplasia, Tail Problems, Patellar luxation.",
         "images": "imgs/Bulldog.jpg"
@@ -75,7 +75,7 @@
         "Size": "Small",
         "Weight(lbs)": "13-18 lbs",
         "Lifespan": "12-15 years",
-        "FurColors": "Black, chocolate, white, cream",
+        "FurColors": ["Black", "Chocolate", "White", "Cream"],
         "Personality": "Gentle, affectionate",
         "About": "The enchanting and absolutely adorable Cavalier King James Spaniel is known for being affectionate, playful, and intelligent. They are great with children and love any interaction with humans! This breed is an ideal family dog and love to cuddle in your lap. They need less than 20 minutes of exercise a day, however they have high grooming needs. Regular grooming is important to keep their fur coat lustrous. This means regular bathing and professional trimming. It is important to know that Cavaliers can develop mitral valve disease early on. This is when the valve between the left atrium and ventricle doesn’t seal tight which puts a strain on the dog’s heart. With careful attention and medication, Cavaliers can live for years with few symptoms.",
         "images": "imgs/Cavalier King James Spaniel.jpg"
@@ -87,7 +87,7 @@
         "Size": "Ver small",
         "Weight(lbs)": "<= 6 lbs",
         "Lifespan": "14-16 years",
-        "FurColors": "Black, white, fawn, cream, brown",
+        "FurColors": ["Black", "White", "Fawn", "Cream", "Brown"],
         "Personality": "Charming, Sassy",
         "About": "The Chihuahua is a tiny dog with a huge personality. A national symbol of Mexico, these alert and amusing \"purse dogs\" stand among the oldest breeds of the Americas, with a lineage going back to the ancient kingdoms of pre-Columbian times. Chihuahuas love nothing more than being with their people — even novice pet parents — and require a minimum of grooming and exercise. They make excellent apartment dogs who’ll get along with the whole family. Just make sure any children who approach know how to play gently with a small dog. Chihuahuas and other toy breeds may suffer from collapsing trachea. In severe cases, surgery will be required.",
         "images": "imgs/chihuahua.jpg"
@@ -99,7 +99,7 @@
         "Size": "Large",
         "Weight(lbs)": "45-70 lbs",
         "Lifespan": "8-12 years",
-        "FurColors": "White, black, chocolate, tan",
+        "FurColors": ["White", "Black", "Chocolate", "Tan"],
         "Personality": "Bright, serious-minded",
         "About": "The adorable, big sized Chow Chow is extremely bright and protective. This breed is not usually affectionate and outgoing when interacting with humans and other dogs. They tend to be serious-minded, fitting their history as guard dogs. It is important to train Chow Chows early on barking habits, and interacting with other dogs. Some rough-coated dogs of this breed need daily grooming to keep their thick fur free of knots and tangles. The folds in their face can have debris build up, so taking care of that is essential.",
         "images": "imgs/Chow Chow.jpg"
@@ -111,7 +111,7 @@
         "Size": "Small",
         "Weight(lbs)": "<= 30 lbs (male), <= 28 lbs (female)",
         "Lifespan": "12-13 years",
-        "FurColors": "Tan, white, golden",
+        "FurColors": ["Tan", "White", "Golden"],
         "Personality": "Affectionate, smart",
         "About": "Originating in Wales is the active, short-legged Corgi. They fit into just about any household and are perfect for those who want a small burst of energy in their life. Corgi’s are eager and easy to train with an average life span of 12-13 years. With short legs, they reach up to 12 in. in height and weighs up to 30lbs. Some health concerns include hip dysplasia, eye problems such as progressive retinal atrophy (PRA), retinal dysplasia and persistent pupillary membranes, and hypothyroidism.",
         "images": "imgs/corgi.jpg"
@@ -122,7 +122,7 @@
         "Size": "Small",
         "Weight(lbs)": "16-32 lbs (standard), 11 lbs & under (miniature)l",
         "Lifespan": "12-16 years",
-        "FurColors": "Black, tan, chocolate, cream",
+        "FurColors": ["Black", "Tan", "Chocolate", "Cream"],
         "Personality": "Friendly, spunky",
         "About": "The famously long, low silhouette, ever-alert expression, and bold, vivacious personality of the Dachshund have made him a superstar of the canine kingdom. Dachshunds come in two sizes and in three coat types of various colors and patterns. Today their versatility makes them excellent family companions, show dogs, and small-game hunters. But don’t let this pup fool you. Dogs of this breed might be, as legendary literary critic and humorous journalist H. L. Mencken said, “half a dog high and a dog and a half long,” but this small, drop-eared dog is tough enough to take on a badger. Due to their long torso, Dachshunds are prone to back issues that must be paid attention to.",
         "images": "imgs/Dachshund.jpg"
@@ -133,7 +133,7 @@
         "Size": "Large",
         "Weight(lbs)": "45-70lbs",
         "Lifespan": "11-13 years",
-        "FurColors": "Black, white",
+        "FurColors": ["Black", "White"],
         "Personality": "Dignified, smart",
         "About": "The dignified Dalmatian, dogdom's citizen of the world, is famed for his spotted coat and unique job description. As charming in life as in Disney’s 101 Dalmatians, Dalmatians go from gallant to goofy to gallant again in the blink of an eye. They love to be a part of everything their family does. That said, they have high energy levels and need plenty of exercise. If you’re looking for a jogging partner and friend who’ll love you unconditionally, this may be the breed for you!",
         "images": "imgs/dalmatian.jpg"
@@ -144,7 +144,7 @@
         "Size": "Very large",
         "Weight(lbs)": "140-175 lbs (male), 110-140 lbs (female)",
         "Lifespan": "7-10 years",
-        "FurColors": "Black, fawn, brown, grey",
+        "FurColors": ["Black", "Fawn", "Brown", "Grey"],
         "Personality": "Friendly, patient, dependable",
         "About": "The easygoing Great Dane, the mighty “Apollo of Dogs,” is a total joy to live with—but owning a dog of such imposing size, weight, and strength is a commitment not to be entered into lightly. Great Danes have been around for a long time, and depictions of Dane-like dogs on artifacts date back thousands of years. Great Danes certainly hold stature in the dog world; but though they look terribly imposing, in reality they’re one of the best-natured dogs around. For all of their size, Great Danes are sweet, affectionate pets. They love to play and are gentle with children.",
         "images": "imgs/Great Dane.jpg"
@@ -155,7 +155,7 @@
         "Size": "Large",
         "Weight(lbs)": "65-70 lbs (male), 60-65 lbs (female)",
         "Lifespan": "10-13 years",
-        "FurColors": "White, Black, grey, tan, brown, red",
+        "FurColors": ["White", "Black", "Grey", "Tan", "Brown", "Red"],
         "Personality": "Gentle, independent",
         "About": "The majestic and sweet Greyhound is extremely affectionate and affable! Some Greyhounds can be needy for attention and affectionate from their owners. They are generally friendly with children, however when the childrens’ play is too rough, they may respond aggressively. This breed is an indoor dog, loving the warmth of the shelter. However, they still should be taken on walks every once in a while. Their fur sheds, but is too short to be noticed. The Greyhound is a sweet companion, and especially perfect for owners who don’t have the time to exercise their dogs for more than 40 minutes a day.",
         "images": "imgs/greyhound.jpg"
@@ -167,7 +167,7 @@
         "Size": "Large",
         "Weight(lbs)": "45-60 lbs (male), 35-50 lbs (female)",
         "Lifespan": "12-14 years",
-        "FurColors": "White, black, grey, brown",
+        "FurColors": ["White", "Black", "Grey", "Brown"],
         "Personality": "Loyal, Outgoing",
         "About": "Originating from Siberia is the popular thick coated Siberian Husky. They are intelligent and thrive on human company! Their typical lifespan ranges from 12-14 years and are naturally clean with little odor. Growing up to 60lbs and 24in tall, they are medium sized working dogs with great power and athleticism. Most owners are drawn to these dogs because of their beauty but they should keep in mind that Huskies are extremely difficult to train and have a reputation for being an escape artist. They have common health issues that most dogs are at risk for, like hip dysplasia and eye disease, but they are generally a relatively healthy breed of dog.",
         "images": "imgs/husky.jpg"
@@ -179,7 +179,7 @@
         "Size": "Very small",
         "Weight(lbs)": "< 7 lbs",
         "Lifespan": "12-15 years",
-        "FurColors": "White",
+        "FurColors": ["White"],
         "Personality": "Playful, charming",
         "About": "This adorable lap dog is gentle and affectionate. Owners would describe this breed as a perfect family dog who loves learning tricks! Maltese barely shed and are usually appropriate for people who suffer from allergies. The hair around their eyes tend to get dirty from tear staining, so cleaning their face frequently is recommended. Maltese are friendly to most people, but raucous children can cause them to snap at them or become irritated. Overall, the Maltese is a great lovable family dog.",
         "images": "imgs/Maltese.jpg"
@@ -191,7 +191,7 @@
         "Size": "Medium",
         "Weight(lbs)": "55-70 lbs (male), 40-55 lbs (female)",
         "Lifespan": "12-16 years",
-        "FurColors": "Black, white, tan, grey",
+        "FurColors": ["Black", "White", "Tan", "Grey"],
         "Personality": "Confident, smart",
         "About": "The American Pit Bull Terrier is a companion and family dog breed. Originally bred to “bait” bulls, the breed evolved into all-around farm dogs, and later moved into the house to become “nanny dogs” because they were so gentle around children. Their tenacity, gameness, and courage make them popular competitors in the sports of weight pulling, agility, and obedience. Of course, you can also find them living as companions, showering their humans with love and affection.",
         "images": "imgs/Pit Bull.jpg"
@@ -203,7 +203,7 @@
         "Size": "Very small",
         "Weight(lbs)": "3-7 lbs",
         "Lifespan": "12-16 years",
-        "FurColors": "White, tan, cream, black, grey",
+        "FurColors": ["White", "Tan", "Cream", "Black", "Grey"],
         "Personality": "Bold, lively",
         "About": "Besides being absolutely adorable and doll-like, this dog breed is friendly and energetic! They are perky and lively and are friendly with children and strangers. However, it is important that children are supervised when playing with a pomeranian because the breed is not as strong or big as other breeds which may result in injury. Pomeranians are great alarm dogs hence are prone to excessive barking. They do not need excessive exercise but daily walks around the neighborhood are recommended! It is important to keep in mind that Pomeranians are predisposed to a hair loss disease called alopecia X. Supplements may have to be taken to prevent this or improve their condition.",
         "images": "imgs/pomeranian.jpg"
@@ -215,7 +215,7 @@
         "Size": "Medium",
         "Weight(lbs)": "60-70 lbs(male), 40-50 lbs (female)",
         "Lifespan": "10-18 years",
-        "FurColors": "Black, brown, grey, white",
+        "FurColors": ["Black", "Brown", "Grey", "White"],
         "Personality": "Active, intelligent",
         "About": "Originating from Germany is the curly haired Poodle. They can come in three sizes (toy, miniature, standard), and are among the most intelligent breeds. Since they are so intelligent, they need lots of mental stimulation to prevent them from being bored. When they are bored they can get destructive. Some common health concerns include hip dysplasia, progressive retinal atrophy, epilepsy, Addison’s disease, thyroid issues, hypoglycemia, bloat, and collapsed trachea. Standard Poodles are also at a higher risk than other breeds for certain cancers, including insulinoma and hemangiosarcoma.",
         "images": "imgs/poodle.jpg"
@@ -227,7 +227,7 @@
         "Size": "Small",
         "Weight(lbs)": "14-18 lbs",
         "Lifespan": "13-15 years",
-        "FurColors": "Black, tan, white",
+        "FurColors": ["Black", "Tan", "White"],
         "Personality": "Mischievous, loving",
         "About": "Originating from China is the derpy, flat-faced Pug. Growing up to 13in and 18lbs, this type of breed are considered toy dogs. They are fun loving and always ready to play. They are also quick witted and can master basic training. A Pug’s flat face means the little dog is capable of a variety of unusual noises. From wheezy breathing to snoring to occasional barking, life with a Pug is usually a symphony of sounds. Some other health conditions to look out for when owning a pug is eye disorders, skin infections, Brachycephalic Syndrome, Heart Disease, and Hip Dysplasia.",
         "images": "imgs/pug.jpg"
@@ -238,7 +238,7 @@
         "Size": "Large",
         "Weight(lbs)": "65-75 lbs (male), 55-65 lbs (female)",
         "Lifespan": "10-12 years",
-        "FurColors": "Cream, golden, dark golden",
+        "FurColors": ["Cream", "Golden", "Dark Golden"],
         "Personality": "Friendly, Intelligent",
         "About": "This rapid growing big ball of golden fur is known as the Golden Retriever. They are family dogs so make sure to include them in your family activities. They are lively and need their daily exercise. Since the Retriever is so popular, there are many people breeding Goldens who care more about making money out of the demand for puppies than breeding happy, healthy dogs. So make sure you trust and look for a reputable breeder and check for health clearances. Some of the health conditions they’re prone to include: Hip Dysplasia, Elbow Dysplasia, Cataracts, Progressive Retinal Atrophy (PRA), Subvalvular Aortic Stenosis, Osteochondrosis Dissecans (OCD), Von Willebrand's Disease, Gastric Dilatation-Volvulus, Epilepsy, Hypothyroidism, Hemangiosarcoma, and Osteosarcoma.",
         "images": "imgs/Retriever.jpg"
@@ -249,7 +249,7 @@
         "Size": "Large",
         "Weight(lbs)": "95-135 lbs (male), 80-100 lbs (female)",
         "Lifespan": "9-10 years",
-        "FurColors": "Black, tan, mahogany, chocolate",
+        "FurColors": ["Black", "Tan", "Mahogany", "Chocolate"],
         "Personality": "Loyal, loving, confident",
         "About": "Owners would describe Rottweilers as loyal, protective, and confident. Socialized rottweilers get along with other dogs and strangers, however male rottweilers can come off as aggressive(Rottweilers are selected for guarding/protection dogs!). They are extremely strong and if left alone for too long, are capable of destruction. Because of their strength and slightly aggressive nature, it is important for Rottweiler owners to be aware of their dog’s habits and to train them properly. This makes this breed not ideal for first-time dog owners. If not exercised enough, Rottweilers have a tendency to obesity so regular exercise is essential. Big breeds like Rottweilers are prone to a variety of joint problems like hip/elbow dysplasia, arthritis and osteochondrosis dissecans.",
         "images": "imgs/rottweiler.jpg"
@@ -260,7 +260,7 @@
         "Size": "Large",
         "Weight(lbs)": "140-180 lbs (male), 120-140 lbs (female)",
         "Lifespan": "8-10 years",
-        "FurColors": "Red, white, brown, black",
+        "FurColors": ["Red", "White", "Brown", "Black"],
         "Personality": "Playful, charming",
         "About": "The playful and affectionate Saint Bernard makes a great pet. They are known to be friendly with just about anyone they meet, including strangers. This makes them kid friendly which is a plus for many families! However, Saint Bernards can be a bit difficult to train, especially when they are adults because they grow to such big sizes, thus it is important to train them when they are still young. Saint Bernards do not have a high exercise need (less than 20 minutes a day), and it is important not to overfeed Saints because excess weight can place a strain on the joints. If you are looking for an affectionate companion who loves family activities, the Saint Bernard is the perfect breed for you!",
         "images": "imgs/Saint Bernard.jpg"
@@ -271,7 +271,7 @@
         "Size": "Large",
         "Weight(lbs)": "65-90 lbs (male), 50-70 lbs (female)",
         "Lifespan": "7-10 years",
-        "FurColors": "Brown, black, sable",
+        "FurColors": ["Brown", "Black", "Sable"],
         "Personality": "Courageous, Smart",
         "About": "The embodiment of heroism is the German Shepherd. Breed to be intelligent working dogs, the Shepherd is an amazing companion. The German Shepherd isn't the breed for you if you're away from home frequently or for long periods of time. When left alone, they can become anxious or bored and are likely to express their worry in ways you don't like, such as barking, chewing, and digging. Not all German Shepherds will get any or all of these diseases, but it's important to be aware of them if you're considering this breed. Some of the conditions include: Hip Dysplasia, Elbow Dysplasia, Gastric Dilatation-Volvulus, Degenerative Myelopathy, Exocrine Pancreatic Insufficiency, and allergies.",
         "images": "imgs/Shepherd.jpg"
@@ -282,7 +282,7 @@
         "Size": "Small",
         "Weight(lbs)": "9-16 lbs",
         "Lifespan": "10-18 years",
-        "FurColors": "Black, white, tan, grey",
+        "FurColors": ["Black", "White", "Tan", "Grey"],
         "Personality": "Affectionate, outgoing",
         "About": "This small-sized breed is a ball of sunshine! In Chinese, their name translates to “lion dog”, which accurately describes their personality. The Shih-Tzu is known to be affectionate and outgoing. They are described as “perky” or lively. Shih-Tzus tend to get along with people as well as other dogs. Shih Tzus do not need intense exercise every day, but it is important that they stay fit with regular walks. It is extremely important to be aware of the weather when having a Shih-Tzu as a pet, because they are prone to heat strokes in humid weather. This breed is a perfect companion for anyone looking for a happy and affectionate dog. It is important to know that toy breeds like Shih Tzus can develop arthritis and may suffer from wobbly kneecaps as they get older. They may pop back into place, or surgery may be required.",
         "images": "imgs/Shih Tzu.jpg"
