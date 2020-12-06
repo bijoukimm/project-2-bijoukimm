@@ -3,6 +3,7 @@ import React from 'react';
 function AboutPage() {
   return (
     <div>
+        <img className="aboutimg" src="./dpgs.png" alt="Dogs playing"></img>
         <h2 className="about-page-title">About Care For Paws</h2>
         <div className="about-content">
           <p> 

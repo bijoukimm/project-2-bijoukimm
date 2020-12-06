@@ -68,16 +68,17 @@ footer {
 }
 
 .about-page-title {
-    background-image: url(./dpgs.png);
+   /* background-image: url(./dpgs.png);
     background-size: auto;
-    background-position: center;
-    height: 50vh;
-    display: flex;
-    color: white;
-    flex-direction: column;
-    justify-content: center;
+    background-repeat: no-repeat; */
+    color: #db9d47d5;
     text-align: center;
-    padding-bottom: 20px;
+    padding-top: 30px;
+}
+
+.aboutimg {
+  size: auto;
+
 }
 
 .about-content {

@@ -53,9 +53,8 @@ function App(props) {
 function AboutNav() {
   return (
     <nav id="aboutLinks">
-      <h2>About</h2>
       <ul className="list-unstyled">
-        <li><NavLink exact to="/" activeClassName={"activeLink"}>Adopt a Pet</NavLink></li>
+        <li><NavLink exact to="/" activeClassName={"activeLink"}>Breeds</NavLink></li>
         <li><NavLink to="/about" activeClassName={"activeLink"}>About Us</NavLink></li>
       </ul>
     </nav>
