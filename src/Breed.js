@@ -14,12 +14,6 @@ function BreedPage(props) {
   let dog =  _.find(allDogs, {BreedName: breedName}); //find pet in data
   if(!dog) return <h2>No dog specified</h2> //if unspecified
 
-
-// // get dog picture 
-//   let dogImage = () => {
-//     let image = { src: '../' + dog.images, altText: dog.BreedName, caption: ''}
-//     return image;
-//   }
   
 let colourList = dog.FurColors.map(function(color) {
   return (<li>{color}</li> );
@@ -28,7 +22,7 @@ let colourList = dog.FurColors.map(function(color) {
   return (
     <div>
       <div class="husky-head">
-          <img className="dog-img-top" src={dog.images} alt={dog.BreedName} />
+          <img className="dog-img-top" src={"../" + dog.images} alt={dog.BreedName} />
           <h1 class="headname">{dog.BreedName}</h1>
       </div>
       <main>
@@ -49,7 +43,11 @@ let colourList = dog.FurColors.map(function(color) {
                       </div>
                       <div class="column husky-cards husky-info-container3">
                           <h3>Size</h3>
-                          <ul class="size-br">{dog.Size}</ul> 
+                          <p class="size-br">{dog.Size}</p> 
+                      </div>
+                      <div class="column husky-cards husky-info-container4">
+                          <h3>About</h3>
+                          <p class="size-br">{dog.About}</p> 
                       </div>
                   </div>
               </div>

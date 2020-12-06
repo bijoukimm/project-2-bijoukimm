@@ -1,6 +1,7 @@
 import React, { useState, Component } from 'react'; //import React Component
 import { Route, Switch, Redirect } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
+import Select from 'react-select';
 import { render } from 'react-dom';
 
 import { AboutPage } from './About';
@@ -10,10 +11,34 @@ import LOGO from './doggy.png'
 
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
+const SIZES = [
+  {label: "Very small", value: "Very small"}, 
+  {label: "Small", value: "Small"}, 
+  {label: "Medium", value: "Medium"}, 
+  {label: "Large", value: "Large"}, 
+  {label: "Very large", value: "Very large"}
+];
+const COLOURS = [ 
+  {label: "Black", value: "Black"}, 
+  {label: "White", value: "White"}, 
+  {label: "Red", value: "Red"}, 
+  {label: "Grey", value: "Grey"}, 
+  {label: "Tan", value: "Tan"},
+  {label: "Chocolate", value: "Chocolate"},
+  {label: "Orange", value: "Orange"},
+  {label: "Brown", value: "Brown"},
+  {label: "Cream", value: "Cream"},
+  {label: "Fawn", value: "Fawn"},
+  {label: "Golden", value: "Golden"},
+  {label: "Dark Golden", value: "Dark Golden"},
+  {label: "Mahogany", value: "Mahogany"},
+  {label: "Sable", value: "Sable"},
+];
 
 function App(props) {
 
   const pets = props.dogs; //pretend this was loaded externally or via prop
+  console.log(pets);
   const renderDogList = (routerProps) => {
     return <DogList {...routerProps} pets={pets} />
   }
@@ -32,10 +57,25 @@ function App(props) {
     
       <main className="container">
         <div className="row">
-          <div className="col-3">
-            <AboutNav />
+          <div className="row">
+            <NavBar />
           </div>
-          <div className="col-9">
+
+          {/* need to make it disappear on breed page */}
+          <div className="container">
+            <div className="row">
+              <div className="col-md-3"></div>
+                <div className="col-md-3">
+                  Sizes: <Select options={SIZES} isMulti/>
+                </div>
+                <div className="col-md-3">
+                  Fur Colours: <Select options={COLOURS} isMulti/>
+                </div>
+              <div className="col-md-4"></div>
+            </div>
+          </div>
+
+          <div className="row">
             <Switch>
               <Route exact path="/" render={renderDogList}/>
               <Route path="/about" component={AboutPage}/>
@@ -53,15 +93,14 @@ function App(props) {
   );
 }
 
-function AboutNav() {
+function NavBar() {
   return (
-    <nav id="aboutLinks">
-      <ul className="list-unstyled">
-        <li><NavLink exact to="/" activeClassName={"activeLink"}>Breeds</NavLink></li>
+    <div>
+      <ul id="nav">
+        <li><NavLink exact to="/" activeClassName={"activeLink"}>Home</NavLink></li>
         <li><NavLink to="/about" activeClassName={"activeLink"}>About Us</NavLink></li>
       </ul>
-    </nav>
-
+    </div>
   );
 }
 
