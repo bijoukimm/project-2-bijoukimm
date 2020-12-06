@@ -2,6 +2,7 @@ import React, { useState, Component } from 'react'; //import React Component
 import { Route, Switch, Redirect } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import { render } from 'react-dom';
+import { Select } from 'react-select'
 
 import { AboutPage } from './About';
 import BreedPage from './Breed';
@@ -23,19 +24,21 @@ function App(props) {
 
   return (
     <div>
-      <header className="jumbotron jumbotron-fluid py-4">
+      <header className="py-4">
         <div className="container">
           <h1 className="title"><Link to='/'><img src={LOGO} alt="dog logo" className="logo"/> Care for Paws</Link></h1>
 
         </div>
       </header>
-    
-      <main className="container">
+      <NavBar/>
+     
+      <main className="container"> 
+     
         <div className="row">
-          <div className="col-3">
-            <AboutNav />
+          <div className="row-3">
+            <filterBar/>
           </div>
-          <div className="col-9">
+          <div className="row-9">
             <Switch>
               <Route exact path="/" render={renderDogList}/>
               <Route path="/about" component={AboutPage}/>
@@ -53,17 +56,32 @@ function App(props) {
   );
 }
 
-function AboutNav() {
-  return (
-    <nav id="aboutLinks">
-      <ul className="list-unstyled">
-        <li><NavLink exact to="/" activeClassName={"activeLink"}>Breeds</NavLink></li>
-        <li><NavLink to="/about" activeClassName={"activeLink"}>About Us</NavLink></li>
-      </ul>
-    </nav>
+
+function NavBar() {
+  return(
+    <Nav className="justify-content-center" activeKey="/home">
+    <Nav.Item>
+      <NavLink className="navButtons" exact to="/" activeClassName={"activeLink"}>Home</NavLink>
+    </Nav.Item>
+    <Nav.Item>
+      <NavLink className="navButtons" to="/about" activeClassName={"activeLink"}>About Us</NavLink>
+    </Nav.Item>
+  </Nav>
 
   );
 }
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
+
+function filterBar() {
+  <Select options={options} />
+}
+
+
 
 function DogList(props) {
   let dogs = props.pets; //handle if not provided a prop

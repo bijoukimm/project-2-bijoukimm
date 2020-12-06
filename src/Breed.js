@@ -27,29 +27,29 @@ let colourList = dog.FurColors.map(function(color) {
 
   return (
     <div>
-      <div class="husky-head">
-          <img className="dog-img-top" src={dog.images} alt={dog.BreedName} />
-          <h1 class="headname">{dog.BreedName}</h1>
+      <div className="husky-head">
+          <img className="dog-img-top" src={"../" + dog.images} alt={dog.BreedName} />
+          <h1 className="headname">{dog.BreedName}</h1>
       </div>
       <main>
-          <div class="breed-content">
-              <section class="about"></section>
-              <div class="information">
-                  <div class="husky-info-container">
-                      <div class="column husky-cards husky-info-container1">
+          <div className="breed-content">
+              <section className="about"></section>
+              <div className="information">
+                  <div className="husky-info-container">
+                      <div className="column husky-cards husky-info-container1">
                           <h3>Personality</h3>
-                          <p class="personality-br">{dog.Personality}</p>
+                          <p className="personality-br">{dog.Personality}</p>
                       </div>
-                      <div class="column husky-cards husky-info-container2">
+                      <div className="column husky-cards husky-info-container2">
                           <h3>Fur Colors</h3>
-                          <p class="furinfo-br">{"The " + dog.BreedName + " has a fur coat that usually are:"}</p>
-                          <ul class="colors-br">
+                          <p className="furinfo-br">{"The " + dog.BreedName + " has a fur coat that usually are:"}</p>
+                          <ul className="colors-br">
                             {colourList}
                           </ul>
                       </div>
-                      <div class="column husky-cards husky-info-container3">
+                      <div className="column husky-cards husky-info-container3">
                           <h3>Size</h3>
-                          <ul class="size-br">{dog.Size}</ul> 
+                          <ul className="size-br">{dog.Size}</ul> 
                       </div>
                   </div>
               </div>

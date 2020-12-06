@@ -78,14 +78,20 @@ height: 180px;
 width: auto;
 }
 
+.title a {
+  color: white;
+}
+
+header {
+  background-color: #db9d47d5;
+}
+
 .about-page-title {
-    background-image: url(./dpgs.png);
+   /* background-image: url(./dpgs.png);
     background-size: auto;
-    background-repeat: no-repeat; 
-    height: 500px;
+    background-repeat: no-repeat; */
     color: #db9d47d5;
     text-align: center;
-    padding-top: 10vh;
 }
 
 .about-content {
@@ -100,13 +106,21 @@ width: auto;
   margin-right: auto;
   padding: auto;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 .background-img {
   padding-left: 50px;
   padding-right: 50px;
   background-image: url(./dpgs.png);
 }
+
+.dog-img-top {
+  width: 100%;
+}
+
+.navButtons {
+  padding-left: 10px;
+}
+
 
 
 

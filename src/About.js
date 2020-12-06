@@ -3,9 +3,9 @@ import React from 'react';
 function AboutPage() {
   return (
     <div>
-        <div class="background-img">
-              <div class="inner">
-                  <div class="text-container text-center">
+        <div className="background-img">
+              <div className="inner">
+                  <div className="text-container text-center">
                     <h2 className="about-page-title">About Care For Paws</h2>
                   </div>
               </div>
