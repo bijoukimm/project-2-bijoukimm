@@ -48,32 +48,17 @@ function App(props) {
   return (
     <div>
       <header className="py-4">
-        <div className="container">
-          <h1 className="title"><Link to='/'><img src={LOGO} alt="dog logo" className="logo"/> Care for Paws</Link></h1>
+        <div className="container col">
+          <h1 className="title"><Link to='/'><img src={LOGO} alt="dog logo" className="logo"/> Care for Paws </Link></h1>
+        </div>
+        <div>
+          <NavBar/>
         </div>
       </header>
      
-      <main className="container"> 
+      <main className="container main-page"> 
         <div className="row">
           <div className="row">
-            <NavBar/>
-          </div>
-
-          {/* need to make it disappear on breed page */}
-          <div className="container">
-            <div className="row">
-              <div className="col-md-3"></div>
-                <div className="col-md-3">
-                  Sizes: <Select options={SIZES} isMulti/>
-                </div>
-                <div className="col-md-3">
-                  Fur Colours: <Select options={COLOURS} isMulti/>
-                </div>
-              <div className="col-md-4"></div>
-            </div>
-          </div>
-
-          <div className="col">
             <Switch>
               <Route exact path="/" render={renderDogList}/>
               <Route path="/about" component={AboutPage}/>
@@ -102,19 +87,19 @@ function NavBar() {
   );
 }
 
-function NavBarSecond() {
-  return(
-    <Nav className="justify-content-center" activeKey="/home">
-    <Nav.Item>
-      <NavLink className="navButtons" exact to="/" activeClassName={"activeLink"}>Home</NavLink>
-    </Nav.Item>
-    <Nav.Item>
-      <NavLink className="navButtons" to="/about" activeClassName={"activeLink"}>About Us</NavLink>
-    </Nav.Item>
-  </Nav>
+// function NavBarSecond() {
+//   return(
+//     <Nav className="justify-content-center" activeKey="/home">
+//     <Nav.Item>
+//       <NavLink className="navButtons" exact to="/" activeClassName={"activeLink"}>Home</NavLink>
+//     </Nav.Item>
+//     <Nav.Item>
+//       <NavLink className="navButtons" to="/about" activeClassName={"activeLink"}>About Us</NavLink>
+//     </Nav.Item>
+//   </Nav>
 
-  );
-}
+//   );
+// }
 
 function DogList(props) {
   let dogs = props.pets; //handle if not provided a prop
@@ -124,9 +109,26 @@ function DogList(props) {
 
   return (
     <div>
-      <h2>Dog Breeds</h2>
-      <div className="card-deck">
-        {dogCards}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-3"></div>
+            <div className="col-md-3 filter">
+              Sizes: <Select options={SIZES} isMulti/>
+            </div>
+            <div className="col-md-3 filter">
+              Fur Colours: <Select options={COLOURS} isMulti/>
+            </div>
+          <div className="col-md-4"></div>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="cards-list-title">Dog Breeds</h2>
+        <div className="flex-container">
+          <div className="card-deck">
+            {dogCards}
+          </div>
+        </div>
       </div>
     </div>
   );

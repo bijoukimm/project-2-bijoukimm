@@ -29,7 +29,7 @@ let colourList = dog.FurColors.map(function(color) {
     <div>
       <div className="husky-head">
           <img className="dog-img-top" src={"../" + dog.images} alt={dog.BreedName} />
-          <h1 className="headname">{dog.BreedName}</h1>
+          <h2 className="headname">{dog.BreedName}</h2>
       </div>
       <main>
           <div className="breed-content">

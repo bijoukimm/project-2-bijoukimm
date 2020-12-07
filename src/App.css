@@ -1,68 +1,85 @@
 
-header.jumbotron {
-    background-color:#db9d47d5;
-    color: white;
-    margin-bottom: 25px;
-    height: 150px;
-  }
-  
-  header.jumbotron a, header.jumbotron a:hover {
-    color: white;
-  }
-  
-  nav {
-    background-color: #db9d47d5;  
-    margin-bottom: 2em; 
-    padding: 1em;
-    width: 100%;
-    text-decoration: none;
-  }
-  
-  nav h2 {
-    font-size: 1.25rem;
-  }
-  
-  /* keep images in check */
-  .card-deck .card {
-    flex-basis: 250px;
-    margin-bottom: 30px;
-    flex-grow: unset;
-  }
-  
-  .activeLink {
-    background-color: #ffce8ad5;
-    border: 3px solid #ffce8ad5;
-  }
-  
-  .carousel {
-    width:350px;
-    margin-bottom: 1em;
-  }
-  
-  .clickable {
-    cursor: pointer;
-  }
-
-
-
-
-/* ------------------------------------------------- */
 * {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* home page(HEADER)------------------------- */
 .logo {
-    height: 120px;
-    width: 120px; 
+  height: 120px;
+  width: 120px; 
 }
 
-footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+.title a {
+  color: white;
 }
+
+header {
+  background-color: #db9d47d5;
+}
+
+header.jumbotron {
+  background-color:#db9d47d5;
+  color: white;
+  margin-bottom: 25px;
+  height: 150px;
+}
+
+header.jumbotron a, header.jumbotron a:hover {
+  color: white;
+}
+
+/* home page (NAV BAR)----------------------------- */
+#nav {
+  width: 100%;
+  float: left;
+  margin: 0.5em 0 3em 0;
+  padding: 0;
+  list-style: none;
+  background-color: rgb(200, 198, 198);
+  /* border-bottom: 1px solid gray; 
+  border-top: 1px solid gray;  */
+}
+
+#nav li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  border-right: 1px solid #ccc; 
+}
+
+#nav li {
+  padding-top: none;
+  float: left; 
+}
+
+.activeLink {
+  background-color: #ffce8ad5;
+  border: 3px solid #ffce8ad5;
+}
+
+
+/* home page (DOG CARDS) --------------------------*/
+.cards-list-title {
+  padding-top: 25px;
+  padding-bottom: 20px;
+}
+
+.card-deck .card {
+  flex-basis: 250px;
+  flex-grow: unset;
+  margin-bottom: 30px;
+}
+
+.flex-container {
+  justify-content: center; /*??? center flex container */
+}
+
+.card-title {
+  width: auto;
+  }
+
 .card-body {
   height: fit-content;
   text-align: center;
@@ -74,31 +91,40 @@ footer {
 height: 180px;
 }
 
-.card-title {
-width: auto;
+.clickable {
+  cursor: pointer;
 }
 
-.title a {
-  color: white;
+
+/* home page (FILTER) ---------------------*/
+.filter {
+  padding: 5px;
+  padding-right: 10px;
+  padding-bottom: 15px;
 }
 
-header {
-  background-color: #db9d47d5;
-}
 
-/*about pg*/
-
+/* ABOUT PAGE -------------------------------------*/
 .about-page-title {
-   /* background-image: url(./dpgs.png);
-    background-size: auto;
-    background-repeat: no-repeat; */
-    color: black;
-    height: fit-content;
-    text-align: center;
+  /* background-image: url(./dpgs.png);
+   background-size: auto;
+   background-repeat: no-repeat; */
+   color: white;
+   padding-top: 100px;
+
+}
+
+.background-img {
+  padding-left: 50px;
+  padding-right: 50px;
+  background-image: url(./dpgs.png);
+  width: auto;
+  height: 350px;
 }
 
 .about-content {
-    padding: 15px;
+  padding: 15px;
+  padding-top: 25px;
 }
 
 .inner {
@@ -109,45 +135,11 @@ header {
   padding: auto;
   color: white;
 }
-.background-img {
-  padding-left: 50px;
-  padding-right: 50px;
-  background-image: url(./dpgs.png);
-  width: auto;
-  height: 350px;
-}
 
 
-/* nav bar & filter bar */
-
-#nav {
-  width: 100%;
-  float: left;
-  margin: 0 0 3em 0;
-  padding: 0;
-  list-style: none;
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #ccc; 
-  border-top: 1px solid #ccc; 
-}
-
-#nav li a {
-  display: block;
-  padding: 8px 15px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #069;
-  border-right: 1px solid #ccc; 
-}
-
-#nav li {
-  padding-top: none;
-  float: left; 
-}
-
-.dog-img-top {
-  width: 70%;
-  align-items: center;
+/* BREED PAGE:--------------------- */
+.headname {
+  padding: 15px;
 }
 
 .husky-head {
@@ -158,8 +150,29 @@ header {
   width: fit-content;
 }
 
+.husky-cards {
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
+.colors-br {
+  font-size: 14pt;
+}
 
+.husky-info-container p  {
+  font-size: 14pt;
+}
 
+.dog-img-top {
+  width: 70%;
+  align-items: center;
+}
 
-
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
