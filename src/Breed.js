@@ -51,9 +51,9 @@ let colourList = dog.FurColors.map(function(color) {
                           <h3>Size</h3>
                           <p className="size-br">{dog.Size}</p> 
                       </div>
-                      <div class="column husky-cards husky-info-container4">
+                      <div className="column husky-cards husky-info-container4">
                           <h3>About</h3>
-                          <p class="size-br">{dog.About}</p> 
+                          <p className="size-br">{dog.About}</p> 
                       </div>
                   </div>
               </div>

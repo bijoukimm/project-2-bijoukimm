@@ -1,15 +1,12 @@
-import React, { useState, Component } from 'react'; //import React Component
+import React, { useState } from 'react'; //import React Component
 import { Route, Switch, Redirect } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
-import { render } from 'react-dom';
 import Select from 'react-select'
-
 import { AboutPage } from './About';
 import BreedPage from './Breed';
 import './App.css'; //import css file!
 import LOGO from './doggy.png'
-
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+// import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 const SIZES = [
   {label: "Very small", value: "Very small"}, 
@@ -107,16 +104,53 @@ function DogList(props) {
     return <DogCard key={dog.BreedName} dog={dog} />;
   })
 
+  const [sizes, setSizes] = useState(undefined);
+  let handleSize = (sizes) => {
+    setSizes(sizes);
+  }
+
+  if (sizes !== undefined && sizes !== null) {
+    dogCards = dogs.map((dog) => {
+      for (let i = 0; i < sizes.length; i++) {
+        if (dog.Size == sizes[i].value) {
+          return <DogCard key={dog.BreedName} dog={dog} />;
+        }
+      }
+    })
+  }
+
+  const [colours, setColours] = useState(undefined);
+
+  let handleColour = (colours) => {
+    setColours(colours);
+  }
+
+  if (colours !== undefined && colours !== null) {
+    dogCards = dogs.map((dog) => {
+      for (let i = 0; i < colours.length; i++) {
+        for (let j = 0; j < dog.FurColors.length; j++) {
+          if (dog.FurColors[j] == colours[i].value) {
+            return <DogCard key={dog.BreedName} dog={dog} />;
+          }
+        }
+      }
+    })
+  }
+
   return (
     <div>
-      <div className="container">
+      <div className="filter-container">
         <div className="row">
           <div className="col-md-3"></div>
             <div className="col-md-3 filter">
-              Sizes: <Select options={SIZES} isMulti/>
+              Sizes: <Select options={SIZES} isMulti
+              onChange={handleSize}
+              values={sizes} />
             </div>
             <div className="col-md-3 filter">
-              Fur Colours: <Select options={COLOURS} isMulti/>
+              Fur Colours: <Select options={COLOURS} isMulti
+              onChange={handleColour}
+              values={colours}/>
             </div>
           <div className="col-md-4"></div>
         </div>
@@ -132,6 +166,7 @@ function DogList(props) {
       </div>
     </div>
   );
+
 }
 
 function DogCard(props) {

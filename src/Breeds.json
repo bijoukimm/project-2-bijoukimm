@@ -37,7 +37,7 @@
       {
         "BreedName": "Border Collie",
         "Height": "19-22 inches (male), 18-21 inches (female)",
-        "Size": "Medium-large",
+        "Size": "Large",
         "Weight(lbs)": "30-55 lbs ",
         "Lifespan": "12-15 years",
         "FurColors": ["Black", "White", "Grey"],
@@ -84,7 +84,7 @@
       {
         "BreedName": "Chihuahua",
         "Height": " 5-8 inches",
-        "Size": "Ver small",
+        "Size": "Very small",
         "Weight(lbs)": "<= 6 lbs",
         "Lifespan": "14-16 years",
         "FurColors": ["Black", "White", "Fawn", "Cream", "Brown"],
