@@ -60,6 +60,16 @@ header.jumbotron a, header.jumbotron a:hover {
   border: 3px solid #ffce8ad5;
 }
 
+#nav li button {
+  position: absolute;
+  right: 16px;
+  color:white;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color: #db9d47d5;
+  font-weight: bold;
+}
+
 
 /* home page (DOG CARDS) --------------------------*/
 .cards-list-title {
@@ -182,6 +192,13 @@ header.jumbotron a, header.jumbotron a:hover {
   align-items: center;
 }
 
+.star-icon {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  color:black;
+}
+
 footer {
   position: relative;
   left: 0;
@@ -190,6 +207,13 @@ footer {
   text-align: center;
 }
 
+.btn {
+  color: white;
+  border: 2px, #db9d47d5;
+
+}
+
+/* 
 
 /* Responsive Design */
 /* @media (min-width: 768px) { /*tablet size */
