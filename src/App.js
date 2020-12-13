@@ -9,8 +9,8 @@ import './App.css'; //import css file!
 import LOGO from './doggy.png';
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import {BsStar} from 'react-icons/bs';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+// import { FaStar } from 'react-icons/fa';
+// import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 const SIZES = [
   {label: "Very small", value: "Very small"}, 
@@ -52,14 +52,14 @@ const uiConfig = {
   },
 };
 
-
 function App(props) {
   const pets = props.dogs; //pretend this was loaded externally or via prop
+
   const renderDogList = (routerProps) => {
     return <DogList {...routerProps} pets={pets} user={user} />
   }
   const renderBreedPage = (routerProps) => {
-    return <BreedPage {...routerProps} pets={pets} />
+    return <BreedPage {...routerProps} pets={pets} user={user} />
   }
   const [errorMessage, setErrorMessage] = useState(undefined);
   const[user, setUser] = useState(undefined);
@@ -136,7 +136,8 @@ function App(props) {
             <Switch>
               <Route exact path="/" render={renderDogList}/>
               <Route path="/about" component={AboutPage}/>
-              <Route path="/favorites" component={FavoritesPage} dogs={props.dogs}/>
+              
+              <Route path="/favorites" render={(props) => (<FavoritesPage {...props} dogs={pets} user={user} />)} />
               <Route path="/breed/:breedName" render={renderBreedPage}/>
               <Redirect to="/"/>
             </Switch>
@@ -192,7 +193,7 @@ function DogList(props) {
   if (sizes !== undefined && sizes !== null) {
     dogCards = dogs.map((dog) => {
       for (let i = 0; i < sizes.length; i++) {
-        if (dog.Size == sizes[i].value) {
+        if (dog.Size === sizes[i].value) {
           return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
         }
       }
@@ -213,14 +214,13 @@ function DogList(props) {
     dogCards = dogs.map((dog) => {
       for (let i = 0; i < colours.length; i++) {
         for (let j = 0; j < dog.FurColors.length; j++) {
-          if (dog.FurColors[j] == colours[i].value) {
+          if (dog.FurColors[j] === colours[i].value) {
             return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
           }
         }
       }
     })
   } else {
-      console.log("blah");
       dogCards = dogs.map((dog) => {
       return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
     })
@@ -260,42 +260,25 @@ function DogList(props) {
 function DogCard(props) {
   let dog = props.dog; //shortcut
 
+  
   const [redirectTo, setRedirectTo] = useState(undefined);
   const handleClick = () => {
     console.log("You clicked on", props.dog.BreedName);
     setRedirectTo(props.dog.BreedName);
   }
 
-  //post a new chirp to the database
-  const postBreed = (event) => {
-    event.preventDefault(); //don't submit
-    console.log(dog.BreedName);
-    
-    /* TODO: add a new Chirp to the database */
-    // const newBreedObj = {
-    //   breed: dog.BreedName
-    // }
 
-    const newBreedObj = {
-      breed: dog.BreedName,
-      userId: props.user.uid,
-      userName: props.user.displayName
-    }
 
-    const breedsRef = firebase.database().ref('breeds');
-    breedsRef.push(newBreedObj);
-  }
+
 
   if (redirectTo !== undefined) {
     return <Redirect push to={"/breed/" + redirectTo} />
   }
 
-  
   return (
-    <div className="card clickable" onClick={handleClick}>
-      <i className="star-icon" key={dog.BreedName} onClick={postBreed}><BsStar/></i>
-      <img className="card-img-top" src={dog.images} alt={dog.BreedName} />
-      <div className="card-body">
+    <div className="card clickable">
+      <img className="card-img-top" src={dog.images} alt={dog.BreedName} onClick={handleClick} />
+      <div className="card-body" onClick={handleClick}>
         <p className="card-title">{dog.BreedName} </p>
       </div>
     </div>
@@ -303,3 +286,4 @@ function DogCard(props) {
 }
 
 export default App;
+

@@ -9,6 +9,7 @@
   width: 100px; 
 }
 
+
 .title a {
   color: white;
   font-size: 30px;
@@ -183,6 +184,7 @@ header.jumbotron a, header.jumbotron a:hover {
   font-size: 14pt;
 }
 
+
 .husky-info-container p  {
   font-size: 14pt;
 }
@@ -192,13 +194,42 @@ header.jumbotron a, header.jumbotron a:hover {
   align-items: center;
 }
 
-.star-icon {
+.favButton {
+  position: center;
+  right: 16px;
+  color: white;
+  background-color: #db9d47d5;
+  border: none;
+  cursor: pointer;
+  margin: 4px 4px;
+  transition-duration: 0.4s;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 16pt;
+}
+
+.favButton:visited {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+
+}
+
+.faveStarpage {
   position: absolute;
   top: 8px;
   right: 16px;
-  color:black;
+  color:#db9d47d5;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
 }
 
+.fave-page-title {
+   margin-bottom: 30px;
+}
 footer {
   position: relative;
   left: 0;
@@ -210,6 +241,7 @@ footer {
 .btn {
   color: white;
   border: 2px, #db9d47d5;
+  border-color: white;
 
 }
 

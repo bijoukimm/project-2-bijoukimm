@@ -1,8 +1,16 @@
 import React from 'react';
 import _ from 'lodash';
 import { useParams } from 'react-router-dom';
+import './App.css'; //import css file!
+import firebase from 'firebase';
+import { useState } from 'react';
+
+//const [contains, setContains] = useState(false);
 
 function BreedPage(props) {
+  const [contains, setContains] = useState(false);
+  const [favStatus, setFavStatus] = useState("Add to Favorites");
+
   let breedName = '';
   const urlParams = useParams();
   breedName = urlParams.breedName;
@@ -15,28 +23,69 @@ function BreedPage(props) {
   if(!dog) return <h2>No dog specified</h2> //if unspecified
 
 
-// // get dog picture 
-//   let dogImage = () => {
-//     let image = { src: '../' + dog.images, altText: dog.BreedName, caption: ''}
-//     return image;
-//   }
+  const toggleBreed = (event) => {
+    event.preventDefault();
+    if (props.contains === true) {
+      removeBreed();
+      setContains(false);
+      setFavStatus("Add to Favorites");
+    } else {
+      postBreed();
+      setContains(true);
+      setFavStatus("Remove from Favorites");
+    }
+  }
+  //post a new chirp to the database
+  const postBreed = () => {
+    console.log("Posting " + dog.BreedName);
+
+    const newBreedObj = {
+      breed: dog.BreedName,
+      userId: props.user.uid,
+      userName: props.user.displayName
+    }
+
+    const breedsRef = firebase.database().ref('breeds');
+    breedsRef.push(newBreedObj);
+  }
   
-let colourList = dog.FurColors.map(function(color) {
-  return (<li>{color}</li> );
-}); 
+  const removeBreed = () => {
+    console.log("Removing " + dog.BreedName);
+      const breedsRef = firebase.database().ref('breeds');
+      breedsRef.on('value', (snapshot) => {
+        const theBreedsObj = snapshot.val(); //convert it into a JS value
+        let objectKeyArray = Object.keys(theBreedsObj);
+        //console.log(JSON.stringify(objectKeyArray));
+        objectKeyArray.map((key) => {
+            let breedObj = theBreedsObj[key];
+            breedObj.key = key;
+            if (breedObj.breed === dog.BreedName && breedObj.userId === props.user.uid) {
+              breedsRef.child(key).remove();
+            }
+        })
+      });
+  }
+  
+  let colourList = dog.FurColors.map(function(color) {
+    return (<li>{color}</li> );
+  }); 
 
   return (
     <div>
       <div className="husky-head">
           <img className="dog-img-top" src={"../" + dog.images} alt={dog.BreedName} />
           <h2 className="headname">{dog.BreedName}</h2>
+        
       </div>
       <main>
+        
           <div className="breed-content">
               <section className="about"></section>
               <div className="information">
                   <div className="husky-info-container">
+                
                       <div className="column husky-cards husky-info-container1">
+                      <button className="favButton" key={dog.BreedName} onClick={toggleBreed}>{favStatus}</button>
                           <h3>Personality</h3>
                           <p className="personality-br">{dog.Personality}</p>
                       </div>
