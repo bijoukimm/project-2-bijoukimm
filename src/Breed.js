@@ -9,9 +9,9 @@ function BreedPage (props) {
   let breedName = '';
   const urlParams = useParams();
   breedName = urlParams.breedName;
-  let contains = false;
+  let contains = props.location.isAdded;
   //let favStatus = "Add to Favorites";
-  const [favStatus, setFavStatus] = useState("Add to Favorites");
+  const [favStatus, setFavStatus] = useState(props.location.fav);
 
   //pretend we loaded external data    
   // let dog =  _.find(SAMPLE_DOGS, {breed: breedName}); //find pet in data
@@ -25,19 +25,15 @@ function BreedPage (props) {
     event.preventDefault();
     if (contains === true) {
       removeBreed();
-      //setContains(false);
       contains = false;
       setFavStatus("Add to Favorites");
-      //favStatus = "Add to Favorites";
     } else {
       addBreed();
       contains = true;
-      //setContains(true);
-      setFavStatus("Remove to Favorites");
-      //favStatus = "Remove from Favorites";
+      setFavStatus("Remove from Favorites");
     }
   }
-  //post a new chirp to the database
+
   const addBreed = () => {
     console.log("Posting " + dog.BreedName);
 
@@ -56,6 +52,7 @@ function BreedPage (props) {
       const breedsRef = firebase.database().ref('breeds');
       breedsRef.on('value', (snapshot) => {
         const theBreedsObj = snapshot.val(); //convert it into a JS value
+        if (theBreedsObj != null) {
         let objectKeyArray = Object.keys(theBreedsObj);
         //console.log(JSON.stringify(objectKeyArray));
         objectKeyArray.map((key) => {
@@ -68,7 +65,8 @@ function BreedPage (props) {
               firebase.database().ref('breeds/' + key).update({ userName: "" });
             }
         })
-      });
+      }
+    });
   }
   
   let colourList = dog.FurColors.map(function(color) {

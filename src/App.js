@@ -59,7 +59,7 @@ function App(props) {
     return <DogList {...routerProps} pets={pets} user={user} />
   }
   const renderBreedPage = (routerProps) => {
-    return <BreedPage {...routerProps} pets={pets} user={user} />
+    return <BreedPage {...routerProps} pets={pets} user={user}/>
   }
   const [errorMessage, setErrorMessage] = useState(undefined);
   const[user, setUser] = useState(undefined);
@@ -136,7 +136,6 @@ function App(props) {
             <Switch>
               <Route exact path="/" render={renderDogList}/>
               <Route path="/about" component={AboutPage}/>
-              
               <Route path="/favorites" render={(props) => (<FavoritesPage {...props} dogs={pets} user={user} />)} />
               <Route path="/breed/:breedName" render={renderBreedPage}/>
               <Redirect to="/"/>
@@ -186,8 +185,9 @@ function DogList(props) {
   })
 
   const [sizes, setSizes] = useState(undefined);
+  const [colours, setColours] = useState(undefined);
   let handleSize = (size) => {
-    if (size != null) {
+    if (size.length != 0) {
       setSizes(size);
     } else {
       setSizes(undefined);
@@ -202,14 +202,13 @@ function DogList(props) {
         }
       }
     })
-  } else {
+  } else if (colours === undefined && sizes === undefined) {
     dogCards = dogs.map((dog) => {
       return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
     })
   }
   
 
-  const [colours, setColours] = useState(undefined);
   let handleColour = (colour) => {
     if (colour.length != 0) {
       setColours(colour);
@@ -228,7 +227,7 @@ function DogList(props) {
         }
       }
     })
-  } else {
+  } else if (colours === undefined && sizes === undefined) {
       dogCards = dogs.map((dog) => {
       return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
     })
@@ -277,21 +276,19 @@ function DogCard(props) {
     setRedirectTo(props.dog.BreedName);
   }
 
-
-
-
-
   if (redirectTo !== undefined) {
-    return <Redirect push to={"/breed/" + redirectTo} />
+    return <Redirect push to={{pathname: "/breed/" + redirectTo, isAdded: false, fav: "Add to Favorites"}} />
   }
 
   return (
-    <div className="card clickable">
-      <img className="card-img-top" src={dog.images} alt={dog.BreedName} onClick={handleClick} />
-      <div className="card-body" onClick={handleClick}>
+    //<Link to={{pathname: "/breed/" + props.dog.BreedName, isAdded: false, fav: "Add to Favorites"}}>
+    <div className="card clickable" onClick={handleClick}>
+      <img className="card-img-top" src={dog.images} alt={dog.BreedName}/>
+      <div className="card-body">
         <p className="card-title">{dog.BreedName} </p>
       </div>
     </div>
+    //</Link>
   );
 }
 

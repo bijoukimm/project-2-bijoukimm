@@ -1,9 +1,10 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 // import BreedPage from './Breed';
 import { Redirect } from 'react-router';  //route, switch
+import { Link } from 'react-router-dom';
 // import DOGS from './Breeds.json';
 
 function FavoritesPage(props) {
@@ -35,8 +36,8 @@ function FavDogList(props) {
     const breedsRef = firebase.database().ref('breeds');
     breedsRef.on('value', (snapshot) => {
       const theBreedsObj = snapshot.val(); //conver it into a JS value
+    if (theBreedsObj != null) {
       let objectKeyArray = Object.keys(theBreedsObj);
-    if (objectKeyArray.length > 0) {
       let breedsArray = objectKeyArray.map((key) => {
           let breedObj = theBreedsObj[key];
           breedObj.key = key;
@@ -48,8 +49,15 @@ function FavDogList(props) {
     });
   }, [])
 
+  let arrayLength = breeds.length;
+  let count = 0;
+  breeds.map((breed) => {
+    if (breed.breed === "") {
+      count++;
+    }
+  })
 
-  if (breeds.length === 0) return null; //if no breeds, don't display
+  if (breeds.length === 0 || count === arrayLength) return "No favorites yet"; //if no breeds, don't display
 
     let dogCards = dogs.map((dog) => {
       //if (breeds.length > 0) {
@@ -82,25 +90,21 @@ function FavDogList(props) {
       setRedirectTo(props.dog.BreedName);
     }
 
-    const postBreed = (event) => {
-      event.preventDefault(); //don't submit
-      console.log(dog.BreedName);
-    }
-
     if (redirectTo !== undefined) {
-      return <Redirect push to={"/breed/" + redirectTo} />
+      return <Redirect push to={{pathname: "/breed/" + redirectTo, isAdded: true, fav: "Remove from Favorites"}}/>
     }
   
     let dog = props.dog; //shortcut
 
     return (
+      //<Link to={{pathname: "/breed/" + props.dog.BreedName, isAdded: true, fav: "Remove from Favorites"}}>
       <div className="card clickable" onClick={handleClick}>
-        {/* <button className="favButton" key={dog.BreedName} onClick={toggleBreed}>{favStatus}</button> */}
         <img className="card-img-top" src={dog.images} alt={dog.BreedName} />
         <div className="card-body">
           <p className="card-title">{dog.BreedName} </p>
         </div>
       </div>
+      //</Link>
     );
   }
 
