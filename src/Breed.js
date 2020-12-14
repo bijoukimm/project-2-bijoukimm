@@ -5,15 +5,13 @@ import './App.css'; //import css file!
 import firebase from 'firebase';
 import { useState } from 'react';
 
-//const [contains, setContains] = useState(false);
-
-function BreedPage(props) {
-  const [contains, setContains] = useState(false);
-  const [favStatus, setFavStatus] = useState("Add to Favorites");
-
+function BreedPage (props) {
   let breedName = '';
   const urlParams = useParams();
   breedName = urlParams.breedName;
+  let contains = false;
+  //let favStatus = "Add to Favorites";
+  const [favStatus, setFavStatus] = useState("Add to Favorites");
 
   //pretend we loaded external data    
   // let dog =  _.find(SAMPLE_DOGS, {breed: breedName}); //find pet in data
@@ -25,18 +23,22 @@ function BreedPage(props) {
 
   const toggleBreed = (event) => {
     event.preventDefault();
-    if (props.contains === true) {
+    if (contains === true) {
       removeBreed();
-      setContains(false);
+      //setContains(false);
+      contains = false;
       setFavStatus("Add to Favorites");
+      //favStatus = "Add to Favorites";
     } else {
-      postBreed();
-      setContains(true);
-      setFavStatus("Remove from Favorites");
+      addBreed();
+      contains = true;
+      //setContains(true);
+      setFavStatus("Remove to Favorites");
+      //favStatus = "Remove from Favorites";
     }
   }
   //post a new chirp to the database
-  const postBreed = () => {
+  const addBreed = () => {
     console.log("Posting " + dog.BreedName);
 
     const newBreedObj = {
@@ -57,17 +59,20 @@ function BreedPage(props) {
         let objectKeyArray = Object.keys(theBreedsObj);
         //console.log(JSON.stringify(objectKeyArray));
         objectKeyArray.map((key) => {
+          //console.log(JSON.stringify(key));
             let breedObj = theBreedsObj[key];
             breedObj.key = key;
             if (breedObj.breed === dog.BreedName && breedObj.userId === props.user.uid) {
-              breedsRef.child(key).remove();
+              firebase.database().ref('breeds/' + key).update({ breed: "" });
+              firebase.database().ref('breeds/' + key).update({ userId: "" });
+              firebase.database().ref('breeds/' + key).update({ userName: "" });
             }
         })
       });
   }
   
   let colourList = dog.FurColors.map(function(color) {
-    return (<li>{color}</li> );
+    return (<li key={color}>{color}</li> );
   }); 
 
   return (
@@ -109,7 +114,7 @@ function BreedPage(props) {
           </div>
       </main>
     </div>
-  );
+  )
 }
 
 export default BreedPage;

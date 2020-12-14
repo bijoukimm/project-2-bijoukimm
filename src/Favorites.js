@@ -3,9 +3,8 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import firebase from 'firebase/app';
 // import BreedPage from './Breed';
-import { Redirect} from 'react-router';  //route, switch
+import { Redirect } from 'react-router';  //route, switch
 // import DOGS from './Breeds.json';
-import { FaStar } from 'react-icons/fa';
 
 function FavoritesPage(props) {
   const pets = props.dogs;
@@ -30,12 +29,14 @@ function FavDogList(props) {
 
   // access data from firebase and return selected dogs only
   const [breeds, setBreeds] = useState([]) //an array!
+  
 
   useEffect(() => {
     const breedsRef = firebase.database().ref('breeds');
     breedsRef.on('value', (snapshot) => {
       const theBreedsObj = snapshot.val(); //conver it into a JS value
       let objectKeyArray = Object.keys(theBreedsObj);
+    if (objectKeyArray.length > 0) {
       let breedsArray = objectKeyArray.map((key) => {
           let breedObj = theBreedsObj[key];
           breedObj.key = key;
@@ -43,20 +44,24 @@ function FavDogList(props) {
       })
 
       setBreeds(breedsArray);
+    }
     });
   }, [])
 
+
   if (breeds.length === 0) return null; //if no breeds, don't display
 
-  let dogCards = dogs.map((dog) => {
-    for (let i = 0; i < breeds.length; i++) {
-      if (dog.BreedName === breeds[i].breed && props.user.uid === breeds[i].userId) {
-          return (
-          <FavDogCard key={dog.BreedName} dog={dog} />
-          )
-      } 
-    }
-  })
+    let dogCards = dogs.map((dog) => {
+      //if (breeds.length > 0) {
+        for (let i = 0; i < breeds.length; i++) {
+          if (dog.BreedName === breeds[i].breed && props.user.uid === breeds[i].userId) {
+              return (
+              <FavDogCard key={dog.BreedName} dog={dog} />
+              )
+          } 
+        }
+      //}
+    })
 
   return (
     <div>
@@ -76,15 +81,11 @@ function FavDogList(props) {
       console.log("You clicked on", props.dog.BreedName);
       setRedirectTo(props.dog.BreedName);
     }
-  
+
     const postBreed = (event) => {
       event.preventDefault(); //don't submit
       console.log(dog.BreedName);
     }
-
-    // const toggleBreed = () = > {
-
-    // }
 
     if (redirectTo !== undefined) {
       return <Redirect push to={"/breed/" + redirectTo} />
@@ -94,7 +95,7 @@ function FavDogList(props) {
 
     return (
       <div className="card clickable" onClick={handleClick}>
-        <button className="faveStarpage" key={dog.BreedName} onClick={postBreed}><FaStar/></button>
+        {/* <button className="favButton" key={dog.BreedName} onClick={toggleBreed}>{favStatus}</button> */}
         <img className="card-img-top" src={dog.images} alt={dog.BreedName} />
         <div className="card-body">
           <p className="card-title">{dog.BreedName} </p>
@@ -102,6 +103,7 @@ function FavDogList(props) {
       </div>
     );
   }
+
 
   export default FavoritesPage;
   export {FavoritesPage};

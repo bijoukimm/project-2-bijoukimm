@@ -188,43 +188,43 @@ function DogList(props) {
   const [sizes, setSizes] = useState(undefined);
   let handleSize = (sizes) => {
     setSizes(sizes);
-  }
-
-  if (sizes !== undefined && sizes !== null) {
-    dogCards = dogs.map((dog) => {
-      for (let i = 0; i < sizes.length; i++) {
-        if (dog.Size === sizes[i].value) {
-          return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
-        }
-      }
-    })
-  } else {
-    dogCards = dogs.map((dog) => {
-      return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
-    })
-  }
-
-  const [colours, setColours] = useState(undefined);
-
-  let handleColour = (colours) => {
-    setColours(colours);
-  }
-
-  if (colours !== undefined && colours !== null) {
-    dogCards = dogs.map((dog) => {
-      for (let i = 0; i < colours.length; i++) {
-        for (let j = 0; j < dog.FurColors.length; j++) {
-          if (dog.FurColors[j] === colours[i].value) {
+    if (sizes !== undefined && sizes !== null) {
+      dogCards = dogs.map((dog) => {
+        for (let i = 0; i < sizes.length; i++) {
+          if (dog.Size === sizes[i].value) {
             return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
           }
         }
-      }
-    })
-  } else {
+      })
+    } else {
       dogCards = dogs.map((dog) => {
-      return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
-    })
+        return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
+      })
+    }
   }
+
+  const [colours, setColours] = useState(undefined);
+  let handleColour = (colours) => {
+    setColours(colours);
+    if (colours !== undefined && colours !== null) {
+      dogCards = dogs.map((dog) => {
+        for (let i = 0; i < colours.length; i++) {
+          for (let j = 0; j < dog.FurColors.length; j++) {
+            if (dog.FurColors[j] === colours[i].value) {
+              return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
+            }
+          }
+        }
+      })
+    } else {
+        dogCards = dogs.map((dog) => {
+        return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
+      })
+    }
+  }
+
+
+
 
   return (
     <div>
