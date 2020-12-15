@@ -2,6 +2,10 @@
 * {
     font-family: 'Montserrat', sans-serif;
 }
+.container {
+  align-items: center;
+
+}
 
 /* home page(HEADER)------------------------- */
 .logo {
@@ -14,6 +18,7 @@
   color: white;
   font-size: 30px;
 }
+
 
 header {
   background-color: #db9d47d5;
@@ -74,9 +79,9 @@ header.jumbotron a, header.jumbotron a:hover {
 /* home page (DOG CARDS) --------------------------*/
 .cards-list-title {
   padding-top: 25px;
-  padding-bottom: 20px;
-  margin-left:50px;
-  margin-right: 50px;
+  text-align: center;
+
+
 }
 
 /*card-deck .card {
@@ -90,8 +95,13 @@ header.jumbotron a, header.jumbotron a:hover {
   margin-bottom: 30px;
   justify-content: center;
   flex-grow: unset;
-
 }
+
+.card-deck {
+  justify-content: center;
+  padding: 40px;
+}
+
 .flex-container {
   display: flex;
   justify-content: center;
@@ -120,6 +130,11 @@ header.jumbotron a, header.jumbotron a:hover {
 /* home page (FILTER) ---------------------*/
 .filter {
   width: 300%;
+  padding-top: 30px;
+}
+.filter-container {
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 /* path .css-6q0nyr-Svg {
@@ -241,9 +256,17 @@ footer {
   color: white;
   border: 2px, #db9d47d5;
   border-color: white;
+  text-decoration: underline;
 
 }
 
+
+
+@media (min-width: 578px) {
+  .card-deck {
+    padding: 15px;
+  }
+}
 /* 
 
 /* Responsive Design */

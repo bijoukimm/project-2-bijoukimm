@@ -9,8 +9,6 @@ import './App.css'; //import css file!
 import LOGO from './doggy.png';
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-// import { FaStar } from 'react-icons/fa';
-// import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 const SIZES = [
   {label: "Very small", value: "Very small"}, 
@@ -187,45 +185,62 @@ function DogList(props) {
   const [sizes, setSizes] = useState(undefined);
   const [colours, setColours] = useState(undefined);
   let handleSize = (size) => {
-    if (size.length != 0) {
-      setSizes(size);
-    } else {
+    if (size == null ) { 
       setSizes(undefined);
+    } else if (size.length === 0) {
+      setSizes(undefined);
+      console.log("All sizes cleared")
     }
+    else {
+      setSizes(size);
+    }
+    
+    // if (size.length != 0) {
+    //   setSizes(size);
+    // } else {
+    //   setSizes(undefined);
+    // }
   }
-
   if (sizes !== undefined && sizes !== null) {
     dogCards = dogs.map((dog) => {
+      let dogCard;
       for (let i = 0; i < sizes.length; i++) {
         if (dog.Size === sizes[i].value) {
-          return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
+          dogCard = <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
         }
       }
+      return dogCard;
     })
   } else if (colours === undefined && sizes === undefined) {
     dogCards = dogs.map((dog) => {
       return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
     })
   }
-  
+
 
   let handleColour = (colour) => {
-    if (colour.length != 0) {
+    if (colour == null) {
       setColours(colour);
-    } else {
+      console.log("Options cleared one by one")
+    } else if (colour.length === 0) {
       setColours(undefined);
+      console.log("Options cleared at once")
+    } else {
+      setColours(colour)
     }
   }
 
   if (colours !== undefined && colours !== null) {
     dogCards = dogs.map((dog) => {
+      let dogCard;
       for (let i = 0; i < colours.length; i++) {
         for (let j = 0; j < dog.FurColors.length; j++) {
           if (dog.FurColors[j] === colours[i].value) {
-            return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
+            dogCard = <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
           }
         }
       }
+      return dogCard;
     })
   } else if (colours === undefined && sizes === undefined) {
       dogCards = dogs.map((dog) => {
@@ -253,8 +268,7 @@ function DogList(props) {
           <div className="col-md-4"></div>
         </div>
       </div>
-
-      <div>
+      <div className="main-dog-cards">
         <h2 className="cards-list-title">Dog Breeds</h2>
         <div className="flex-container">
           <div className="card-deck">

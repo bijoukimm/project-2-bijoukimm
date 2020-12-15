@@ -57,13 +57,13 @@ function BreedPage (props) {
         //console.log(JSON.stringify(objectKeyArray));
         objectKeyArray.map((key) => {
           //console.log(JSON.stringify(key));
-            let breedObj = theBreedsObj[key];
-            breedObj.key = key;
-            if (breedObj.breed === dog.BreedName && breedObj.userId === props.user.uid) {
-              firebase.database().ref('breeds/' + key).update({ breed: "" });
-              firebase.database().ref('breeds/' + key).update({ userId: "" });
-              firebase.database().ref('breeds/' + key).update({ userName: "" });
-            }
+          let breedObj = theBreedsObj[key];
+          breedObj.key = key;
+          if (breedObj.breed === dog.BreedName && breedObj.userId === props.user.uid) {
+            firebase.database().ref('breeds/' + key).update({ breed: "" });
+            firebase.database().ref('breeds/' + key).update({ userId: "" });
+            firebase.database().ref('breeds/' + key).update({ userName: "" });
+          }
         })
       }
     });

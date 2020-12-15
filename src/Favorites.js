@@ -1,11 +1,8 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
-// import BreedPage from './Breed';
 import { Redirect } from 'react-router';  //route, switch
-import { Link } from 'react-router-dom';
-// import DOGS from './Breeds.json';
+
 
 function FavoritesPage(props) {
   const pets = props.dogs;
@@ -30,7 +27,6 @@ function FavDogList(props) {
 
   // access data from firebase and return selected dogs only
   const [breeds, setBreeds] = useState([]) //an array!
-  
 
   useEffect(() => {
     const breedsRef = firebase.database().ref('breeds');
@@ -55,27 +51,27 @@ function FavDogList(props) {
     if (breed.breed === "") {
       count++;
     }
+    return count;
   })
 
-  if (breeds.length === 0 || count === arrayLength) return "No favorites yet"; //if no breeds, don't display
-
-    let dogCards = dogs.map((dog) => {
-      //if (breeds.length > 0) {
-        for (let i = 0; i < breeds.length; i++) {
-          if (dog.BreedName === breeds[i].breed && props.user.uid === breeds[i].userId) {
-              return (
-              <FavDogCard key={dog.BreedName} dog={dog} />
-              )
-          } 
-        }
-      //}
-    })
-
+  if (breeds.length === 0 || count === arrayLength) { //if no breeds, don't display
+    return ("No favorites yet!")
+    
+  } 
+  let dogCards = dogs.map((dog) => {
+    let favDogCard;
+    for (let i = 0; i < breeds.length; i++) {
+      if (dog.BreedName === breeds[i].breed && props.user.uid === breeds[i].userId) {
+        favDogCard = <FavDogCard key={dog.BreedName} dog={dog}/>
+      } 
+    }
+    return favDogCard;
+  })
   return (
     <div>
-        <div className="flex-container">
-          <div className="card-deck">
-              {dogCards}
+      <div className="flex-container">
+        <div className="card-deck">
+            {dogCards}
         </div>
       </div>
     </div>
@@ -98,6 +94,7 @@ function FavDogList(props) {
 
     return (
       //<Link to={{pathname: "/breed/" + props.dog.BreedName, isAdded: true, fav: "Remove from Favorites"}}>
+      
       <div className="card clickable" onClick={handleClick}>
         <img className="card-img-top" src={dog.images} alt={dog.BreedName} />
         <div className="card-body">
