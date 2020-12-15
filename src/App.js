@@ -117,6 +117,12 @@ function App(props) {
         <div className="container col">
           <h1 className="title"><Link to='/'><img src={LOGO} alt="dog logo" className="logo"/> Care for Paws </Link></h1>
         </div>
+        <div className="logout-button"> 
+        {user &&
+            <button className="btn btn-warning" onClick={handleSignOut}>
+              Log Out {user.displayName}
+            </button>} 
+        </div>
         <div>
           <NavBar user={user} handleSignOut={handleSignOut}/>      
         </div>
@@ -165,12 +171,12 @@ function NavBar(props) {
         <li><NavLink exact to="/" activeClassName={"activeLink"}>Home</NavLink></li>
         <li><NavLink to="/about" activeClassName={"activeLink"}>About Us</NavLink></li>
         <li><NavLink to="/favorites" activeClassName={"activeLink"}>Favorites</NavLink></li>
-        <li>
+        {/* <li>
         {props.user &&
             <button className="btn btn-warning" onClick={props.handleSignOut}>
               Log Out {props.user.displayName}
             </button>} 
-        </li>
+        </li> */}
       </ul>
     </div>
   );

@@ -54,10 +54,10 @@ function FavDogList(props) {
     return count;
   })
 
-  if (breeds.length === 0 || count === arrayLength) { //if no breeds, don't display
-    return ("No favorites yet!")
-    
-  } 
+  if (breeds.length === 0 || count === arrayLength)  //if no breeds, don't display
+    return "No favorites yet!";
+
+   
   let dogCards = dogs.map((dog) => {
     let favDogCard;
     for (let i = 0; i < breeds.length; i++) {
