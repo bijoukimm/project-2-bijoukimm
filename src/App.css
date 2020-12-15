@@ -5,16 +5,19 @@
 .container {
   align-items: center;
 }
+
 .fave-page-title {
   margin: 30px; 
 }
-
+.nofavorites {
+  margin: 40px;
+} 
+/* } also the title and pic size wait i swear the logo was not that big? try iphone 6 one more time */
 /* home page(HEADER)------------------------- */
 .logo {
-  height: 100px;
-  width: 100px; 
+  height: 80px;
+  width: 80px; 
 }
-
 
 .title a {
   color: white;
@@ -24,6 +27,8 @@
 
 header {
   background-color: #db9d47d5;
+  width: 100%;
+  
 }
 
 header.jumbotron {
@@ -82,16 +87,9 @@ header.jumbotron a, header.jumbotron a:hover {
 .cards-list-title {
   padding-top: 25px;
   text-align: center;
-
-
+  margin-right: auto;
 }
 
-/*card-deck .card {
-  flex-basis: 200px;
-  align-self: flex-start;
-  margin-bottom: 30px;
-  justify-content: center;
-}*/
 .card-deck .card {
   flex-basis: 250px;
   margin-bottom: 30px;
@@ -101,12 +99,14 @@ header.jumbotron a, header.jumbotron a:hover {
 
 .card-deck {
   justify-content: center;
-  padding: 40px;
+  margin: 40px;
 }
 
 .flex-container {
   display: flex;
   justify-content: center;
+  margin-right:0;
+  padding-right: 0;
 }
 
 .card-title {
@@ -117,7 +117,7 @@ header.jumbotron a, header.jumbotron a:hover {
   height: fit-content;
   text-align: center;
   font-size: 18px;
-  padding-bottom: 1%;
+  /* padding-bottom: 1%; */
 }
 
 .card-img-top {
@@ -131,7 +131,7 @@ header.jumbotron a, header.jumbotron a:hover {
 
 /* home page (FILTER) ---------------------*/
 .filter {
-  width: 300%;
+  width: 100%;
   padding-top: 30px;
 }
 .filter-container {
@@ -142,7 +142,9 @@ header.jumbotron a, header.jumbotron a:hover {
 /* path .css-6q0nyr-Svg {
   color: white;
 } */
-
+.filterandcards {
+  margin-right: 0;
+}
 
 /* ABOUT PAGE -------------------------------------*/
 .about-page-title {
@@ -229,7 +231,6 @@ header.jumbotron a, header.jumbotron a:hover {
   background-color: white;
   border: none;
   cursor: pointer;
-
 }
 
 .faveStarpage {
@@ -260,16 +261,15 @@ footer {
   background-color: white;
   border: 2px, #db9d47d5;
   border-color: white;
-  text-decoration: underline;
   font-weight: 500;
-}
+} 
+
 
 .logout-button {
   text-align: right;
   margin-top: 10px;
   margin-right: 10px;
 }
-
 /* lmao ::-webkit-meter-suboptimum-valueugh i was tffff
 i was thinking moving the button like above the nav bar? like lower right of the headerbut thats so much work kms
 i think its cuz its a button element
@@ -278,7 +278,11 @@ hm true i'm not that good at css lol LOL ig we could try that vivian seems to do
 
 @media (min-width: 578px) {
   .card-deck {
-    padding: 15px;
+    /* padding: 15px; */
+  }
+  .logo {
+    width: 100px;
+    height: 100px;
   }
 }
 /* 

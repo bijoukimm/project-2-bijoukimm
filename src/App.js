@@ -112,14 +112,14 @@ function App(props) {
     );
   } else {
     content = (
-        <div>
+        <div className="main">
       <header className="py-4">
         <div className="container col">
           <h1 className="title"><Link to='/'><img src={LOGO} alt="dog logo" className="logo"/> Care for Paws </Link></h1>
         </div>
         <div className="logout-button"> 
         {user &&
-            <button className="btn btn-warning" onClick={handleSignOut}>
+            <button className="btn" onClick={handleSignOut}>
               Log Out {user.displayName}
             </button>} 
         </div>
@@ -257,7 +257,7 @@ function DogList(props) {
   
 
   return (
-    <div>
+    <div className="filterandcards">
       <div className="filter-container">
         <div className="row">
           <div className="col-md-3"></div>

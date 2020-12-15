@@ -45,19 +45,28 @@ function FavDogList(props) {
     });
   }, [])
 
-  let arrayLength = breeds.length;
+  let specificLength = 0;
+  breeds.map((breed) => {
+    if (breed.userId === props.user.uid) {
+      specificLength++;
+    }
+  })
+
   let count = 0;
   breeds.map((breed) => {
-    if (breed.breed === "") {
+    if (breed.userId === props.user.uid && breed.breed === "") {
       count++;
     }
     return count;
   })
 
-  if (breeds.length === 0 || count === arrayLength)  //if no breeds, don't display
-    return "No favorites yet!";
+  if (breeds.length === 0 || count === specificLength)  //if no breeds, don't display
+    return (
+      <div className="nofavorites">
+        <p>No favorites yet!</p>
+      </div>
+    )  //how do we add classname here lol oh im dumb
 
-   
   let dogCards = dogs.map((dog) => {
     let favDogCard;
     for (let i = 0; i < breeds.length; i++) {
