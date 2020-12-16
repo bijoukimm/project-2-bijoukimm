@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'; //import React Component
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import Select from 'react-select'
 import { AboutPage } from './About';
 import BreedPage from './Breed';
 import FavoritesPage from './Favorites';
-import './App.css'; //import css file!
+import './App.css'; 
 import LOGO from './doggy.png';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth'
+import 'firebase/database'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 const SIZES = [
@@ -51,7 +53,7 @@ const uiConfig = {
 };
 
 function App(props) {
-  const pets = props.dogs; //pretend this was loaded externally or via prop
+  const pets = props.dogs;
 
   const renderDogList = (routerProps) => {
     return <DogList {...routerProps} pets={pets} user={user} />
@@ -64,12 +66,10 @@ function App(props) {
   const [isLoading, setIsLoading] = useState(true);
 
   //auth state event listener
-  useEffect(() => { //run after conponent loads
-    //listen for changes to the authstate (logged in or not)
+  useEffect(() => {
     const authUnregisterFunction = firebase.auth().onAuthStateChanged((firebaseUser) => {
       if (firebaseUser) {
         console.log("logged in as " + firebaseUser.displayName);
-        // console.log(firebaseUser);
         setIsLoading(false);
         setUser(firebaseUser);
       } else {
@@ -79,18 +79,15 @@ function App(props) {
       }
     })
 
-    return function cleanup() { // what to do when done loading
+    return function cleanup() {
       authUnregisterFunction();
     }
   }, [])
 
   const handleSignOut = () => {
-    setErrorMessage(null); //clear any old errors
+    setErrorMessage(null);
     firebase.auth().signOut();
   }
-  
-  //firebase authenticator
-  // let theAuthenticator = firebase.auth();
 
   //spinner
   if (isLoading) {
@@ -101,12 +98,14 @@ function App(props) {
     )
   }
   
-  let content = null; //content to render
+  let content = null;
 
   if (!user) {
     content = (
-      <div className="container">
-        <h1> Sign Up</h1>
+      <div className="signup-page">
+        <img src={LOGO} alt="dog logo" className="logoSign"/>
+        <header className="signupheader"> </header>
+        <h1 className="signup-title">Sign Up</h1>
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
       </div>
     );
@@ -171,19 +170,13 @@ function NavBar(props) {
         <li><NavLink exact to="/" activeClassName={"activeLink"}>Home</NavLink></li>
         <li><NavLink to="/about" activeClassName={"activeLink"}>About Us</NavLink></li>
         <li><NavLink to="/favorites" activeClassName={"activeLink"}>Favorites</NavLink></li>
-        {/* <li>
-        {props.user &&
-            <button className="btn btn-warning" onClick={props.handleSignOut}>
-              Log Out {props.user.displayName}
-            </button>} 
-        </li> */}
       </ul>
     </div>
   );
 }
 
 function DogList(props) {
-  let dogs = props.pets; //handle if not provided a prop
+  let dogs = props.pets;
   let dogCards = dogs.map((dog) => {
     return <DogCard key={dog.BreedName} dog={dog} user={props.user} />;
   })
@@ -195,18 +188,12 @@ function DogList(props) {
       setSizes(undefined);
     } else if (size.length === 0) {
       setSizes(undefined);
-      console.log("All sizes cleared")
     }
     else {
       setSizes(size);
     }
-    
-    // if (size.length != 0) {
-    //   setSizes(size);
-    // } else {
-    //   setSizes(undefined);
-    // }
   }
+
   if (sizes !== undefined && sizes !== null) {
     dogCards = dogs.map((dog) => {
       let dogCard;
@@ -223,14 +210,11 @@ function DogList(props) {
     })
   }
 
-
   let handleColour = (colour) => {
     if (colour == null) {
       setColours(colour);
-      console.log("Options cleared one by one")
     } else if (colour.length === 0) {
       setColours(undefined);
-      console.log("Options cleared at once")
     } else {
       setColours(colour)
     }
@@ -254,8 +238,6 @@ function DogList(props) {
     })
   }
 
-  
-
   return (
     <div className="filterandcards">
       <div className="filter-container">
@@ -269,7 +251,7 @@ function DogList(props) {
             <div className="col-md-3 filter">
               Fur Colours: <Select options={COLOURS} isMulti
               onChange={handleColour}
-              values={colours}/>
+              values={colours} />
             </div>
           <div className="col-md-4"></div>
         </div>
@@ -287,12 +269,10 @@ function DogList(props) {
 }
 
 function DogCard(props) {
-  let dog = props.dog; //shortcut
+  let dog = props.dog;
 
-  
   const [redirectTo, setRedirectTo] = useState(undefined);
   const handleClick = () => {
-    console.log("You clicked on", props.dog.BreedName);
     setRedirectTo(props.dog.BreedName);
   }
 
@@ -301,14 +281,12 @@ function DogCard(props) {
   }
 
   return (
-    //<Link to={{pathname: "/breed/" + props.dog.BreedName, isAdded: false, fav: "Add to Favorites"}}>
     <div className="card clickable" onClick={handleClick}>
       <img className="card-img-top" src={dog.images} alt={dog.BreedName}/>
       <div className="card-body">
         <p className="card-title">{dog.BreedName} </p>
       </div>
     </div>
-    //</Link>
   );
 }
 

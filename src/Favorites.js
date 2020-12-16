@@ -1,12 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
-import { Redirect } from 'react-router';  //route, switch
+import { Redirect } from 'react-router'; 
 
 
 function FavoritesPage(props) {
   const pets = props.dogs;
-  console.log("user: " + props.user.displayName)
 
   return (
     <div>
@@ -23,26 +22,27 @@ function FavoritesPage(props) {
 }
 
 function FavDogList(props) {
-  let dogs = props.pets; //handle if not provided a prop
+  let dogs = props.pets;
 
   // access data from firebase and return selected dogs only
-  const [breeds, setBreeds] = useState([]) //an array!
+  const [breeds, setBreeds] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
     const breedsRef = firebase.database().ref('breeds');
     breedsRef.on('value', (snapshot) => {
-      const theBreedsObj = snapshot.val(); //conver it into a JS value
-    if (theBreedsObj != null) {
+      const theBreedsObj = snapshot.val(); //convert it into a JS value
+    if (theBreedsObj != null && isMounted) {
       let objectKeyArray = Object.keys(theBreedsObj);
       let breedsArray = objectKeyArray.map((key) => {
           let breedObj = theBreedsObj[key];
           breedObj.key = key;
           return breedObj;
       })
-
       setBreeds(breedsArray);
     }
     });
+    return () => { isMounted = false };
   }, [])
 
   let specificLength = 0;
@@ -50,6 +50,7 @@ function FavDogList(props) {
     if (breed.userId === props.user.uid) {
       specificLength++;
     }
+    return specificLength;
   })
 
   let count = 0;
@@ -60,12 +61,12 @@ function FavDogList(props) {
     return count;
   })
 
-  if (breeds.length === 0 || count === specificLength)  //if no breeds, don't display
+  if (breeds.length === 0 || count === specificLength)
     return (
       <div className="nofavorites">
         <p>No favorites yet!</p>
       </div>
-    )  //how do we add classname here lol oh im dumb
+    )
 
   let dogCards = dogs.map((dog) => {
     let favDogCard;
@@ -88,10 +89,8 @@ function FavDogList(props) {
 }
   
   function FavDogCard(props) {
-    // console.log(props.dog);
     const [redirectTo, setRedirectTo] = useState(undefined);
     const handleClick = () => {
-      console.log("You clicked on", props.dog.BreedName);
       setRedirectTo(props.dog.BreedName);
     }
 
@@ -99,18 +98,15 @@ function FavDogList(props) {
       return <Redirect push to={{pathname: "/breed/" + redirectTo, isAdded: true, fav: "Remove from Favorites"}}/>
     }
   
-    let dog = props.dog; //shortcut
+    let dog = props.dog;
 
-    return (
-      //<Link to={{pathname: "/breed/" + props.dog.BreedName, isAdded: true, fav: "Remove from Favorites"}}>
-      
+    return (      
       <div className="card clickable" onClick={handleClick}>
         <img className="card-img-top" src={dog.images} alt={dog.BreedName} />
         <div className="card-body">
           <p className="card-title">{dog.BreedName} </p>
         </div>
       </div>
-      //</Link>
     );
   }
 

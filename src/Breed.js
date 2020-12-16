@@ -1,8 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 import { useParams } from 'react-router-dom';
-import './App.css'; //import css file!
-import firebase from 'firebase';
+import './App.css';
+import firebase from 'firebase/app';
 import { useState } from 'react';
 
 function BreedPage (props) {
@@ -10,16 +10,12 @@ function BreedPage (props) {
   const urlParams = useParams();
   breedName = urlParams.breedName;
   let contains = props.location.isAdded;
-  //let favStatus = "Add to Favorites";
   const [favStatus, setFavStatus] = useState(props.location.fav);
 
-  //pretend we loaded external data    
-  // let dog =  _.find(SAMPLE_DOGS, {breed: breedName}); //find pet in data
   let allDogs = props.pets;
 
-  let dog =  _.find(allDogs, {BreedName: breedName}); //find pet in data
-  if(!dog) return <h2>No dog specified</h2> //if unspecified
-
+  let dog =  _.find(allDogs, {BreedName: breedName});
+  if(!dog) return <h2>No dog specified</h2>
 
   const toggleBreed = (event) => {
     event.preventDefault();
@@ -35,8 +31,6 @@ function BreedPage (props) {
   }
 
   const addBreed = () => {
-    console.log("Posting " + dog.BreedName);
-
     const newBreedObj = {
       breed: dog.BreedName,
       userId: props.user.uid,
@@ -48,22 +42,20 @@ function BreedPage (props) {
   }
   
   const removeBreed = () => {
-    console.log("Removing " + dog.BreedName);
       const breedsRef = firebase.database().ref('breeds');
       breedsRef.on('value', (snapshot) => {
         const theBreedsObj = snapshot.val(); //convert it into a JS value
         if (theBreedsObj != null) {
         let objectKeyArray = Object.keys(theBreedsObj);
-        //console.log(JSON.stringify(objectKeyArray));
         objectKeyArray.map((key) => {
-          //console.log(JSON.stringify(key));
           let breedObj = theBreedsObj[key];
           breedObj.key = key;
           if (breedObj.breed === dog.BreedName && breedObj.userId === props.user.uid) {
             firebase.database().ref('breeds/' + key).update({ breed: "" });
             firebase.database().ref('breeds/' + key).update({ userId: "" });
-            firebase.database().ref('breeds/' + key).update({ userName: "" });
+            firebase.database().ref('breeds/' + key).update({ userName: "" })
           }
+          return breedObj;
         })
       }
     });

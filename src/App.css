@@ -1,6 +1,7 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
+
 }
 .container {
   align-items: center;
@@ -12,7 +13,7 @@
 .nofavorites {
   margin: 40px;
 } 
-/* } also the title and pic size wait i swear the logo was not that big? try iphone 6 one more time */
+
 /* home page(HEADER)------------------------- */
 .logo {
   height: 80px;
@@ -23,7 +24,6 @@
   color: white;
   font-size: 30px;
 }
-
 
 header {
   background-color: #db9d47d5;
@@ -50,8 +50,6 @@ header.jumbotron a, header.jumbotron a:hover {
   padding: 0;
   list-style: none;
   background-color: rgb(200, 198, 198);
-  /* border-bottom: 1px solid gray; 
-  border-top: 1px solid gray;  */
 }
 
 #nav li a {
@@ -117,7 +115,6 @@ header.jumbotron a, header.jumbotron a:hover {
   height: fit-content;
   text-align: center;
   font-size: 18px;
-  /* padding-bottom: 1%; */
 }
 
 .card-img-top {
@@ -127,7 +124,6 @@ header.jumbotron a, header.jumbotron a:hover {
 .clickable {
   cursor: pointer;
 }
-
 
 /* home page (FILTER) ---------------------*/
 .filter {
@@ -139,21 +135,14 @@ header.jumbotron a, header.jumbotron a:hover {
   margin-right: 30px;
 }
 
-/* path .css-6q0nyr-Svg {
-  color: white;
-} */
 .filterandcards {
-  margin-right: 0;
+  margin-right: 0px;
 }
 
 /* ABOUT PAGE -------------------------------------*/
 .about-page-title {
-  /* background-image: url(./dpgs.png);
-   background-size: auto;
-   background-repeat: no-repeat; */
    color: white;
    padding-top: 100px;
-
 }
 
 .background-img {
@@ -179,7 +168,6 @@ header.jumbotron a, header.jumbotron a:hover {
   color: white;
 }
 
-
 /* BREED PAGE:--------------------- */
 .headname {
   padding: 15px;
@@ -203,7 +191,6 @@ header.jumbotron a, header.jumbotron a:hover {
   font-size: 14pt;
 }
 
-
 .husky-info-container p  {
   font-size: 14pt;
 }
@@ -224,7 +211,7 @@ header.jumbotron a, header.jumbotron a:hover {
   transition-duration: 0.4s;
   padding: 10px;
   margin-bottom: 40px;
-  font-size: 16pt;
+  font-size: 12pt;
 }
 
 .favButton:visited {
@@ -254,120 +241,57 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
+  padding-bottom: 30px;
 }
 
 .btn {
   color: #db9d47d5;
   background-color: white;
   border: 2px, #db9d47d5;
-  border-color: white;
   font-weight: 500;
+  transition-duration: 0.4s; 
+  
 } 
-
 
 .logout-button {
   text-align: right;
   margin-top: 10px;
   margin-right: 10px;
 }
-/* lmao ::-webkit-meter-suboptimum-valueugh i was tffff
-i was thinking moving the button like above the nav bar? like lower right of the headerbut thats so much work kms
-i think its cuz its a button element
-even tho its in the navbar
-hm true i'm not that good at css lol LOL ig we could try that vivian seems to do it so quickvivian is a god at css i agree */
 
+.btn:hover {
+  background-color: #db9d47d5;
+  color: white;
+
+}
+
+.signup-title {
+  text-align: center;
+  color: white
+}
+
+.signup-page {
+  height: 2000px;
+  background-color: #db9d47d5;
+}
+
+.logoSign {
+  padding-top: 100px;
+  padding-bottom: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Responsive Design */
 @media (min-width: 578px) {
-  .card-deck {
-    /* padding: 15px; */
-  }
   .logo {
     width: 100px;
     height: 100px;
   }
+
+  .logoSign {
+    width: 10%;
+  }
 }
-/* 
-
-/* Responsive Design */
-/* @media (min-width: 768px) { /*tablet size */
-
-  /* .logo {
-    height: 120px;
-    width: 120px; 
-  }
-  
-  .title a {
-    color: white;
-    font-size: 50px;
-  }
-  
-  .card {
-    flex-basis: 250px;
-    flex-grow: unset;
-    margin-bottom: 30px;
-    justify-content: center;
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-  
-  .f-inline { 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-  .husky-info-container {
-      display: flex;
-      flex-direction: row;
-      text-align: left;
-  }
-  .husky-cards {
-      font-size: 15pt;
-      margin-left: 10px;
-      margin-right: 10px;
-      flex-basis: auto;
-  }
-  .husky-head h1 {
-      font-size: 75px;
-  }
-  .about {
-      font-size: 17pt;
-  }
-  .heading-bar {
-      font-size: 32pt;
-  }
-  .column {
-      width: 33.33%;
-      padding: 20px;
-  }
-  .landing {
-      background-size: cover;
-  }
-  .husky-info-container .column {
-  padding: 2rem;
-  }
-
-}
-
-@media (min-width: 1024px) {
-
-  .card {
-      margin: 1rem;
-      flex-basis: 300px;
-  }
-  .f-inline { 
-      display: flex;
-      flex-direction: row;
-      align-items: center; 
-  }
-  .husky-head h1 {
-      font-size: 90px
-  }
-  .husky-cards {
-      font-size: 16pt;
-      margin-left: 10px;
-      margin-right: 10px;
-      flex-basis: auto;
-  }
-  .about {
-      font-size: 18pt;
-  }
-} */ 
